@@ -1,4 +1,11 @@
 const create = (function(){
+
+    function createElement(element){
+        const item = document.createElement(`${element}`);
+
+        return item;
+    }
+
     function createTextElement(element , text){
         const item = document.createElement(`${element}`);
         item.textContent = text;
@@ -25,7 +32,7 @@ const create = (function(){
         return img;
     }
 
-    return{createTextElement , createElementWithID , createElementWithClass , createImgWithSrc}
+    return{createElement , createTextElement , createElementWithID , createElementWithClass , createImgWithSrc}
 
 })();
 
