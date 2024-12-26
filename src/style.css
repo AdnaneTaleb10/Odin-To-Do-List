@@ -31,3 +31,28 @@ p, h1 ,h2 ,h3 ,h4, h5, h6{
 input, button, textarea, select {
     font: inherit;
 }
+
+main{
+    display: grid;
+    grid-template-columns: 4em 1fr 1fr;
+    grid-template-rows: 4em 1fr;
+    height: 100dvh;
+}
+
+header{
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    border: 2px solid lightgray;
+}
+
+aside{
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
+    border-right: 2px solid lightgray;
+}
+
+.left{
+    border-right: 2px solid lightgray;
+    grid-column: 2 / 3;
+    grid-row: 2 / -1;
+}
