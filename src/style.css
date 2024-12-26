@@ -1,22 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@charset "UTF-8";
+
+/* CSS RESET */
 
 *,
 *::before,
 *::after{
+    box-sizing: 0;
+}
+
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body{
-    height: 100vh;
-    font-family: "Montserrat", serif;
-    color: black;
-    background: repeating-conic-gradient(rgb(231, 90, 124) 0%,
-    rgb(214, 219, 210) 15%,
-    rgb(231, 90, 124) 33%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 100%;
 }
 
+image, picture, svg, video, canvas{
+    display: block;
+    max-width: 100%;
+}
+
+p, h1 ,h2 ,h3 ,h4, h5, h6{
+    overflow-wrap: break-word;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
