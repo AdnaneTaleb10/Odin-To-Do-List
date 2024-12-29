@@ -1,5 +1,17 @@
 @charset "UTF-8";
 
+
+:root {
+    --timberwolf: #d3d3d3ff;
+    --french-gray: #adb5bdff;
+    --dim-gray: #6d6a75ff;
+    --argentinian-blue: #64b5f6ff;
+    --dodger-blue: #2196f3ff;
+    
+    --gray: #D3D3D3;
+    --border: 2px solid #D3D3D3;
+}
+
 /* CSS RESET */
 
 *,
@@ -42,17 +54,38 @@ main{
 header{
     grid-row: 1 / 2;
     grid-column: 1 / -1;
-    border: 2px solid lightgray;
+    border: var(--border);
+    display: flex;
+    align-items: center;
 }
 
 aside{
     grid-row: 2 / -1;
     grid-column: 1 / 2;
-    border-right: 2px solid lightgray;
+    border-right: var(--border);
 }
 
 .left{
-    border-right: 2px solid lightgray;
+    border-right: var(--border);
     grid-column: 2 / 3;
     grid-row: 2 / -1;
 }
+
+#logo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+}
+
+#logo img{
+    width: 3em;
+}
+
+#logo p{
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+

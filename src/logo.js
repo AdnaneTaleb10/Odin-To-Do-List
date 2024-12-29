@@ -17,5 +17,3 @@ export default function setLogo(){
     logoDiv.appendChild(logo);
     logoDiv.appendChild(logoText);
 };
-
-setLogo();
