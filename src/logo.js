@@ -12,7 +12,7 @@ export default function setLogo(){
     let logoDiv = document.querySelector('#logo');
     let logo = create.createImgWithSrc(headerLogo);
     let logoText = create.createTextElement('p' , "TO DO LIST");
-    logoText.style.color = 'var(--french-gray)';
+    logoText.style.color = 'var(--default-gray)';
 
     logoDiv.appendChild(logo);
     logoDiv.appendChild(logoText);
