@@ -164,8 +164,6 @@ nav div i:hover{
     grid-column: 1/2;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
-
-    background-color: var(--blue);
 }
 
 .task > .wrapper{
