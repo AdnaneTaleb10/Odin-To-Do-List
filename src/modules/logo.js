@@ -1,5 +1,5 @@
-import favicon from "./Assets/to-do-list.png"
-import headerLogo from "./Assets/logo.png"
+import favicon from "../Assets/to-do-list.png"
+import headerLogo from "../Assets/logo.png"
 import create from "./domCreate"
 
 export default function setLogo(){
