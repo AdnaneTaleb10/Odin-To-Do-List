@@ -7,7 +7,9 @@ import {Task , newTaskCard} from './modules/newTask';
 let tasks = [];
 let projects = [];
 
-const header = new Task('Add header', 'To-do List', '24-06-2024', 'high', 'Header components: Logo, dark/light mode theme icon, and login button');
+//constructor(title, project, priority, dueDate, description)
+
+const header = new Task('Add header', 'To-do List', 'high', '24-06-2024' , 'Header components: Logo, dark/light mode theme icon, and login button');
 tasks.push(header);
 
 function displayTasks(arr) {

@@ -30,14 +30,14 @@ function newTaskCard(task){
     card.classList.add('task-card');
 
     const priority = create.createElement("div");
-    card.classList.add("priority");
-    card.classList.add(`${task.priority}`);
+    priority.classList.add("priority");
+    priority.classList.add(`${task.priority}`);
 
     const wrapper = create.createElement("div");
     wrapper.classList.add("wrapper");
 
     const checkbox = create.createElement('input');
-    checkbox.classList.add('check');
+    checkbox.classList.add('checkbox');
     checkbox.type = 'checkbox';
     wrapper.appendChild(checkbox);
 
@@ -57,11 +57,11 @@ function newTaskCard(task){
 
     wrapper.appendChild(info);
 
-    const dateAndActions = document.createElement("div");
+    const dateAndActions = create.createElement("div");
     dateAndActions.classList.add("date-and-actions");
 
-    const dueDate = document.createElement("p");
-    dueDate.classList.add("date-and-actions");
+    const dueDate = create.createElement("p");
+    dueDate.classList.add("due-date");
     dueDate.textContent = `${task.dueDate}`;
 
     const editBtn = create.createElement('button');

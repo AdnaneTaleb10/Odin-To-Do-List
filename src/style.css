@@ -74,6 +74,7 @@ aside{
     grid-row: 2 / -1;
     grid-column: 1 / 2;
     border-right: 2px solid var(--borders-gray);
+    border-left: 2px solid var(--borders-gray);
 }
 
 nav{
@@ -115,6 +116,7 @@ nav div i:hover{
 
 #full-view {
     display: flex;
+     border-right: 2px solid var(--borders-gray);
 }
 
 #full-view > div#empty-view {
@@ -192,6 +194,17 @@ nav div i:hover{
     font-size: 0.8em;
     color: var(--dark-gray);
 }
+
+.checkbox {
+    margin-left: 0.4em;
+    accent-color: var(--logo-blue);
+    transform: scale(1.4);
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
 
 .date-and-actions{
     justify-self: end;
