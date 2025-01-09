@@ -1,4 +1,5 @@
 import create from "./domCreate";
+import { tasks , displayCards } from "../index.js";
 
     // Card
     // | Priority
@@ -16,7 +17,7 @@ class Task {
     constructor(title, project, priority, dueDate, description) {
         this.title = title;
         this.project = project;
-        this.priority = priority;
+        this.priority = priority.toLowerCase();
         this.dueDate = dueDate;
         this.description = description;
         this.done = false;
@@ -66,8 +67,30 @@ function newTaskCard(task){
 
     const editBtn = create.createElement('button');
     const removeBtn = create.createElement('button');
-    editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'actions');
-    removeBtn.classList.add('fa-regular', 'fa-square-minus', 'actions');
+    editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'actions' , 'edit');
+    removeBtn.classList.add('fa-regular', 'fa-square-minus', 'actions' , 'delete');
+
+    checkbox.onclick = function() {
+        if(checkbox.checked) {
+            checkbox.parentElement.parentElement.style.opacity = '40%';
+        } else {
+            checkbox.parentElement.parentElement.style.opacity = '100%';
+        };
+    };
+
+    removeBtn.addEventListener('click' , () => {
+        const btnCard = removeBtn.parentElement.parentElement.parentElement;
+        tasks.splice(btnCard.dataset.index, 1);
+        btnCard.remove();
+
+        const allCards = document.querySelectorAll('.task-card');
+        allCards.forEach(card => {
+            card.remove();
+        });   //This will just delete the card from the dom, not from the array of tasks
+
+        displayCards(); //display the array after deleting all cards from the DOM
+        console.table(tasks);
+    })
 
     dateAndActions.appendChild(dueDate);
     dateAndActions.appendChild(editBtn);
