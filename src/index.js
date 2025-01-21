@@ -1,4 +1,4 @@
-import './style.css';
+import './css/style.css';
 import setLogo from './modules/logo';
 import Project from './modules/newProject';
 import {Task , newTaskCard} from './modules/newTask';

@@ -93,15 +93,26 @@ nav div{
     padding: 2rem 0;
     gap: 1.2em;
     font-size: 1.8rem;
+}
+
+nav div button{
+    background-color: transparent;
+    border: none;
     color: var(--default-gray);
 }
 
-nav div i{
+nav div button i{
     padding: 6px;
     border-radius: 5px;
 }
 
-nav div i:hover{
+div i{
+    background-color: transparent;
+    border: none;
+    color: var(--default-gray);
+}
+
+nav div button:hover{
     cursor: pointer;
     background-color: rgb(235, 235, 235);
 }
@@ -177,7 +188,7 @@ nav div i:hover{
     display: grid;
     grid-template-columns: 20px 1fr 1fr;
     grid-template-rows: 1fr;
-    column-gap: 0.5em;
+    column-gap: 0.8em;
     align-items: center;
 }
 
