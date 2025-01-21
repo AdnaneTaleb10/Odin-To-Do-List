@@ -1,5 +1,5 @@
-import create from "./domCreate";
-import { tasks , displayCards } from "../index.js";
+import create from "./domCreate.js";
+import { tasksArr , displayCards } from "../index.js";
 
     // Card
     // | Priority
@@ -78,19 +78,7 @@ function newTaskCard(task){
         };
     };
 
-    removeBtn.addEventListener('click' , () => {
-        const btnCard = removeBtn.parentElement.parentElement.parentElement;
-        tasks.splice(btnCard.dataset.index, 1);
-        btnCard.remove();
-
-        const allCards = document.querySelectorAll('.task-card');
-        allCards.forEach(card => {
-            card.remove();
-        });   //This will just delete the card from the dom, not from the array of tasks
-
-        displayCards(); //display the array after deleting all cards from the DOM
-        console.table(tasks);
-    })
+    removeBtn.addEventListener('click' , () => removeTask(removeBtn));
 
     dateAndActions.appendChild(dueDate);
     dateAndActions.appendChild(editBtn);
@@ -100,6 +88,20 @@ function newTaskCard(task){
 
     card.append(priority , wrapper);
     minView.appendChild(card)
+}
+
+function removeTask(btn){
+    const btnCard = btn.parentElement.parentElement.parentElement;
+    tasksArr.splice(btnCard.dataset.index, 1);
+    btnCard.remove();
+
+    const allCards = document.querySelectorAll('.task-card');
+    allCards.forEach(card => {
+        card.remove();
+    });   //This will just delete the card from the dom, not from the array of tasks
+
+    displayCards(); //display the array after deleting all cards from the DOM
+    console.table(tasksArr);
 }
 
 export {Task , newTaskCard};
