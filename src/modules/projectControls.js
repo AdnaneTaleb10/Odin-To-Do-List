@@ -21,7 +21,7 @@ function newProject(project){
     projectCard.appendChild(stripe);
 
     const wrapper = create.createElement("div");
-    wrapper.classList.add("wrapper");
+    wrapper.classList.add("project-wrapper");
     stripe.appendChild(wrapper);
 
     const info = create.createElement("div");
