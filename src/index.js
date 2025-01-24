@@ -1,52 +1,36 @@
 import './css/style.css';
 import setLogo from './modules/logo';
-import {Task , newTaskCard} from './modules/taskControls';
-import { Project , newProject } from './modules/projectControls';
+import {Task , newTaskCard , pushTask , displayTaskCards} from './modules/taskControls';
+import { Project , newProject , pushProject , displayProjectsCards} from './modules/projectControls';
 
 
 let tasksArr = [];
 let projectsArr = [];
 
-/* pushTask(new Task("Header", 'Restaurant Page', '24-06-2024', 'High', 'Header components: Logo, dark/light mode theme icon, and login button'));
-pushTask(new Task('Nav', 'Dashboard', '13-10-2024', 'low', 'nav icons'));
-pushTask(new Task('Main', 'Library', '10-10-2050', 'medium', 'libros')); */
-console.table(tasksArr);
+ pushTask(new Task("Header", 'Restaurant Page', 'High', '24-06-2024', 'Header components: Logo, dark/light mode theme icon, and login button'));
+ pushTask(new Task('Nav', 'Dashboard', 'low', '13-10-2024', 'nav icons'));
+ pushTask(new Task('Main', 'Library', 'medium', '10-10-2050', 'libros'));
+ console.table(tasksArr);
+ displayTaskCards();
 
-pushProject(new Project("Portfolio" , "myportfolio.com" , "website to showcase my personal projects"));
-console.table(projectsArr)
 
-function pushTask(task) {
-    tasksArr.push(task)
-};
-function pushProject(project) {
-    projectsArr.push(project)
-};
+ pushProject(new Project('To-do list', 'teste.com', 'Ah sei lá n sei oq'));
+ pushProject(new Project('Outro projeto', '', 'Ah sei lá n sei oq'));
+ console.table(projectsArr);
+ displayProjectsCards();
 
-function displayProjects(){
-    for(const project of projectsArr){
-        newProject(project)
-        console.log("heeeeelloowwww")
-    }
-}
 
-function displayCards() {
-    for(const task of tasksArr) {
-        newTaskCard(task)
-    }
 
-    setDatasetIndex();
-};
 
-function setDatasetIndex() {
+function setDatasetIndex(elementClassName) {
     let index = 0;
-    const cards = document.querySelectorAll('.task-card');
-    cards.forEach(card => {
-        card.dataset.index = index;
+    const elements = document.querySelectorAll(`.${elementClassName}`);
+    elements.forEach(element => {
+        element.dataset.index = index;
         index++;
     });
-};
+}
 
 setLogo();
-displayProjects();
 
-export { tasksArr, projectsArr, displayCards , displayProjects };
+export { tasksArr, projectsArr , setDatasetIndex };

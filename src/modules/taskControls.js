@@ -1,5 +1,5 @@
 import create from "./domCreate.js";
-import { tasksArr , displayCards } from "../index.js";
+import { tasksArr , setDatasetIndex } from "../index.js";
 
     // Card
     // | Priority
@@ -27,48 +27,36 @@ class Task {
 function newTaskCard(task){
     const minView = document.querySelector("#min-view");
 
-    const card = create.createElement("div");
-    card.classList.add('task-card');
+    const card = create.createElementWithClass("div" , "task-card");
 
-    const priority = create.createElement("div");
-    priority.classList.add("priority");
-    priority.classList.add(`${task.priority}`);
+    const priority = create.createElementWithClass("div" , "priority" , `${task.priority}`);
 
-    const wrapper = create.createElement("div");
-    wrapper.classList.add("wrapper");
+    const wrapper = create.createElementWithClass("div" , "wrapper");
 
-    const checkbox = create.createElement('input');
-    checkbox.classList.add('checkbox');
+    const checkbox = create.createElementWithClass('input' , 'checkbox');
     checkbox.type = 'checkbox';
     wrapper.appendChild(checkbox);
 
-    const info = create.createElement("div");
-    info.classList.add("info");
+    const info = create.createElementWithClass("div" , "info");
 
-    const title = create.createElement("p");
+    const title = create.createTextElement("p" , `${task.title}`);
     title.classList.add("title");
-    title.textContent =  `${task.title}`
 
-    const project = create.createElement("p");
+    const project = create.createTextElement("p" , `${task.project}`);
     project.classList.add("project");
-    project.textContent =  `${task.project}`
 
     info.appendChild(title);
     info.appendChild(project);
 
     wrapper.appendChild(info);
 
-    const dateAndActions = create.createElement("div");
-    dateAndActions.classList.add("date-and-actions");
+    const dateAndActions = create.createElementWithClass("div" , "date-and-actions");
 
-    const dueDate = create.createElement("p");
+    const dueDate = create.createTextElement("p" , `${task.dueDate}`);
     dueDate.classList.add("due-date");
-    dueDate.textContent = `${task.dueDate}`;
 
-    const editBtn = create.createElement('button');
-    const removeBtn = create.createElement('button');
-    editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'actions' , 'edit');
-    removeBtn.classList.add('fa-regular', 'fa-square-minus', 'actions' , 'delete');
+    const editBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-pen-to-square', 'actions' , 'edit');
+    const removeBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-square-minus', 'actions' , 'delete');
 
     checkbox.onclick = function() {
         if(checkbox.checked) {
@@ -90,6 +78,8 @@ function newTaskCard(task){
     minView.appendChild(card)
 }
 
+
+
 function removeTask(btn){
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
@@ -100,8 +90,27 @@ function removeTask(btn){
         card.remove();
     });   //This will just delete the card from the dom, not from the array of tasks
 
-    displayCards(); //display the array after deleting all cards from the DOM
+    displayTaskCards(); //display the array after deleting all cards from the DOM
     console.table(tasksArr);
 }
 
-export {Task , newTaskCard};
+
+function clearTask() {
+    const allCards = document.querySelectorAll('.task-card');
+    allCards.forEach(card => {
+        card.remove();
+    });
+};
+
+function pushTask(task){
+    tasksArr.push(task);
+}
+
+function displayTaskCards() {
+    for(const task of tasksArr) {
+        newTaskCard(task);
+    };
+    setDatasetIndex('task-card');
+};
+
+export {Task , newTaskCard , displayTaskCards , pushTask};

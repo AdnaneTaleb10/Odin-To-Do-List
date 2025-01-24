@@ -1,5 +1,5 @@
 import create from "./domCreate";
-import { projectsArr , displayProjects } from "../index";
+import { projectsArr , setDatasetIndex } from "../index";
 
 class Project {
     constructor(title, link , description) {
@@ -13,40 +13,42 @@ class Project {
 function newProject(project){
     const minView = document.querySelector("#min-view");
 
+    // Card
+    // ^ stripe
+    // ^ wrapper
+    //   ^ info
+    //     ^ title
+    //     ^ link
+    //   ^ btnsDiv
+    //     ^ editBtn
+    //     ^ removeBtn
+
     const projectCard = create.createElement("div");
     projectCard.classList.add('project-card');
 
-    const stripe = create.createElement("div");
-    stripe.classList.add("project-stripe");
+    const stripe = create.createElementWithClass("div" , "project-stripe");
     projectCard.appendChild(stripe);
 
-    const wrapper = create.createElement("div");
-    wrapper.classList.add("project-wrapper");
+    const wrapper = create.createElementWithClass("div" , "project-wrapper");
     stripe.appendChild(wrapper);
 
-    const info = create.createElement("div");
-    info.classList.add("project-info");
+    const info = create.createElementWithClass("div" , "project-info");
 
-    const title = create.createElement("p");
+    const title = create.createTextElement("p" , `${project.title}`);
     title.classList.add("project-title");
-    title.textContent = `${project.title}`;
 
-    const link = create.createElement("a");
+    const link = create.createTextElement("a" , `${project.link}`);
     link.href = `${project.link}`;
-    link.textContent = `${project.link}`;
 
     info.appendChild(title);
     info.appendChild(link);
 
     wrapper.appendChild(info);
 
-    const actions = create.createElement("div");
-    actions.classList.add("project-actions");
+    const actions = create.createElementWithClass("div" , "project-actions");
 
-    const editBtn = create.createElement('button');
-    const removeBtn = create.createElement('button');
-    editBtn.classList.add('fa-regular', 'fa-pen-to-square', 'edit-project');
-    removeBtn.classList.add('fa-regular', 'fa-square-minus', 'remove-project');
+    const editBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-pen-to-square', 'edit-project');
+    const removeBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-square-minus', 'remove-project');
 
     actions.appendChild(editBtn);
     actions.appendChild(removeBtn);
@@ -57,4 +59,34 @@ function newProject(project){
     minView.appendChild(projectCard)
 }
 
-export {Project , newProject};
+function removeProject(btn){
+    const btnProject = btn.parentElement.parentElement.parentElement;
+    projectsArr.splice(btn.dataset.index , 1);
+    btnProject.remove();
+
+    clearProjects()
+
+    displayProjectsCards();
+    console.table(projectsArr);
+}
+
+
+function clearProjects() {
+    const allCards = document.querySelectorAll('.project-card');
+    allCards.forEach(card => {
+        card.remove();
+    });
+};
+
+function pushProject(project){
+    projectsArr.push(project);
+}
+
+function displayProjectsCards() {
+    for(const proj of projectsArr) {
+        newProject(proj);
+    };
+    setDatasetIndex('project');
+};
+
+export { Project , newProject , pushProject ,displayProjectsCards };
