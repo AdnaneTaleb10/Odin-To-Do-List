@@ -12,19 +12,17 @@ const create = (function(){
         return item;
     };
 
-    function createElementWithID(element , id , text){
-        const item = document.createElement(`${element}`);
-        item.id = id;
-        item.textContent = text;
+    function createElementWithID(element, ...ids) {
+        const item = document.createElement(element);
+        item.id = ids.join(' ');
         return item;
     }
 
-    function createElementWithClass(element , className , text){
-        const item = document.createElement(`${element}`);
-        item.classList.add(`${className}`);
-        item.textContent = text;
-        return item;
-    }
+    function createElementWithClass(elementName, ...classNames) {
+        const element = document.createElement(elementName);
+        element.classList.add(...classNames);
+        return element;
+      }
 
     function createImgWithSrc(src){
         const img = document.createElement('img');
