@@ -1,5 +1,6 @@
 import create from "./domCreate.js";
 import { tasksArr , setDatasetIndex } from "../index.js";
+import { filterPriority } from "./priorities.js";
 
     // Card
     // | Priority
@@ -59,10 +60,15 @@ function newTaskCard(task){
     const removeBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-square-minus', 'actions' , 'delete');
 
     checkbox.onclick = function() {
+        const parentCard = checkbox.parentElement.parentElement;
         if(checkbox.checked) {
-            checkbox.parentElement.parentElement.style.opacity = '40%';
+            parentCard.style.opacity = '40%';
+            tasksArr[parentCard.dataset.index].done = 'true';
+            console.log(tasksArr[parentCard.dataset.index].done)
         } else {
-            checkbox.parentElement.parentElement.style.opacity = '100%';
+            parentCard.style.opacity = '100%';
+            tasksArr[parentCard.dataset.index].done = 'false';
+            console.log(tasksArr[parentCard.dataset.index].done)
         };
     };
 
@@ -101,6 +107,7 @@ function clearTask() {
 
 function pushTask(task){
     tasksArr.push(task);
+    filterPriority(task);
 }
 
 function displayTaskCards() {
@@ -110,4 +117,4 @@ function displayTaskCards() {
     setDatasetIndex('task-card');
 };
 
-export {Task , displayTaskCards , pushTask};
+export {Task , newTaskCard , displayTaskCards , pushTask};
