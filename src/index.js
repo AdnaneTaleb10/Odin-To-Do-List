@@ -32,8 +32,6 @@ function setDatasetIndex(elementClassName) {
     });
 }
 
-
-
 setLogo();
 
 const homeTab = document.querySelector('#home');
@@ -51,4 +49,4 @@ projectTab.addEventListener('click' , () => {
 
 window.onload = displayTaskCards();
 
-export { tasksArr, projectsArr , setDatasetIndex };
+export { tasksArr, projectsArr, clearCards, setDatasetIndex };
