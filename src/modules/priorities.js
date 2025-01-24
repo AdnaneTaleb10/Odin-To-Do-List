@@ -1,5 +1,5 @@
 import { newTaskCard , displayTaskCards } from "./taskControls";
-import { clearCards } from "..";
+import { clearCards , changeCurrTabLabel } from "..";
 
 const priority = (function(){
     let filtred = false;
@@ -28,11 +28,13 @@ const lowPriorBtn = document.querySelector('#low');
 lowPriorBtn.addEventListener('click' , () => {
     if(priority.filtred !== 'low'){
         priority.filtred = 'low';
-        clearCards()
+        clearCards();
+        changeCurrTabLabel('Low Priority');
         priority.displayByPrior('low');
     }else{
         priority.filtred = null;
         clearCards();
+        changeCurrTabLabel('Home');
         displayTaskCards();
     }
 })
@@ -42,10 +44,12 @@ midPriorBtn.addEventListener('click' , () => {
     if(priority.filtred !== 'medium'){
         priority.filtred = 'medium';
         clearCards()
+        changeCurrTabLabel('Medium Priority');
         priority.displayByPrior('medium');
     }else{
         priority.filtred = null;
         clearCards();
+        changeCurrTabLabel('Home');
         displayTaskCards();
     }
 })
@@ -55,10 +59,12 @@ highPriorBtn.addEventListener('click' , () => {
     if(priority.filtred !== 'high'){
         priority.filtred = 'high';
         clearCards()
+        changeCurrTabLabel('High Priority');
         priority.displayByPrior('high');
     }else{
         priority.filtred = null;
         clearCards();
+        changeCurrTabLabel('Home');
         displayTaskCards();
     }
 })

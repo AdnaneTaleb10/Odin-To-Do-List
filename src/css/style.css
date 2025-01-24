@@ -125,6 +125,15 @@ nav div button:hover{
     flex-direction: column;
 }
 
+#current-tab{
+    font-size: 3rem;
+    color: var(--default-gray);
+    position: fixed;
+    bottom: 0;
+    align-self: end;
+    margin-right: 16px;
+}
+
 #full-view {
     display: flex;
      border-right: 2px solid var(--borders-gray);

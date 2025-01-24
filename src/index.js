@@ -32,6 +32,11 @@ function setDatasetIndex(elementClassName) {
     });
 }
 
+function changeCurrTabLabel(newTab){
+    const currentTab = document.querySelector('#current-tab');
+    currentTab.textContent = newTab;
+}
+
 setLogo();
 
 const homeTab = document.querySelector('#home');
@@ -39,14 +44,16 @@ const projectTab = document.querySelector('#projects')
 
 homeTab.addEventListener('click' , () => {
     clearCards();
+    changeCurrTabLabel('Home')
     displayTaskCards();
 });
 
 projectTab.addEventListener('click' , () => {
     clearCards();
+    changeCurrTabLabel('Projects')
     displayProjectsCards();
 });
 
 window.onload = displayTaskCards();
 
-export { tasksArr, projectsArr, clearCards, setDatasetIndex };
+export { tasksArr, projectsArr, clearCards, setDatasetIndex, changeCurrTabLabel };
