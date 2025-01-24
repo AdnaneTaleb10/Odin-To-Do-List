@@ -262,6 +262,58 @@ button.actions{
     background-color: var(--argentinian-blue);
 }
 
+form{
+    position: absolute;
+    z-index: 3;
+    place-self: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid var(--borders-gray);
+    background-color: white;
+    transition: .2s ease-in-out;
+    padding: 1em 1.5em;
+}
+
+form > h1{
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+form > div{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 1em;
+    color: var(--black);
+}
+
+form > div > input,
+form > div > select,
+form > div > textarea{
+    resize: none;
+    border: 2px solid var(--default-gray);
+    color: var(--dark-gray);
+    border-radius: 7px;
+    padding: 0.2em;
+}
+
+form > div > button{
+    padding: 0.4em;
+    border: none;
+    border-radius: 7px;
+    background-color: var(--argentinian-blue);
+    color: white;
+    text-align: center;
+}
+
+input::placeholder {
+    color: var(--dark-gray);
+}
+button[type="submit"]:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
 .project-card{
     margin: 1em 1em 0 1em;
     border: 2px solid var(--default-gray);

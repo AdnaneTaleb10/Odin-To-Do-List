@@ -49,6 +49,46 @@
 
     <div id="min-view">
       <div id="current-tab">Home</div>
+      <form action="">
+        <h1>New Task</h1>
+
+        <div>
+          <label for="first_name">Title*</label>
+          <input type="text" id="first_name" placeholder="Walk the dog" minlength="5" required>
+        </div>
+
+        <div>
+          <label for="projects-dropdown">Project</label>
+          <select name="projects" id="projects-dropdown">
+            <option value="Teste" selected>Teste</option>
+            <option value="Teste">Teste</option>
+            <option value="Teste">Teste</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="priorities-dropdown">Priority</label>
+          <select name="priorities" id="priorities-dropdown">
+            <option value="low" selected>Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="due-date">Date</label>
+          <input type="date" id="due-date" placeholder="dd/mm/yyyy">
+        </div>
+
+        <div>
+          <label for="text-note">Notes</label>
+          <textarea id="text-note" placeholder="Don't foget the water bottle!" rows="5" cols="5"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" id="add-task">Add Task</button>
+      </div>
+      </form>
     </div>
 
     <div id="full-view">
