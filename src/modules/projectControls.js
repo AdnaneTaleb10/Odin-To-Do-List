@@ -23,8 +23,7 @@ function newProject(project){
     //     ^ editBtn
     //     ^ removeBtn
 
-    const projectCard = create.createElement("div");
-    projectCard.classList.add('project-card');
+    const projectCard = create.createElementWithClass("div" , 'project-card' , 'card');
 
     const stripe = create.createElementWithClass("div" , "project-stripe");
     projectCard.appendChild(stripe);
@@ -89,4 +88,4 @@ function displayProjectsCards() {
     setDatasetIndex('project');
 };
 
-export { Project , newProject , pushProject ,displayProjectsCards };
+export { Project , pushProject ,displayProjectsCards };

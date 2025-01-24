@@ -27,7 +27,7 @@ class Task {
 function newTaskCard(task){
     const minView = document.querySelector("#min-view");
 
-    const card = create.createElementWithClass("div" , "task-card");
+    const card = create.createElementWithClass("div" , "task-card" , "card");
 
     const priority = create.createElementWithClass("div" , "priority" , `${task.priority}`);
 
@@ -85,10 +85,7 @@ function removeTask(btn){
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
 
-    const allCards = document.querySelectorAll('.task-card');
-    allCards.forEach(card => {
-        card.remove();
-    });   //This will just delete the card from the dom, not from the array of tasks
+    clearTask()   //This will just delete the card from the dom, not from the array of tasks
 
     displayTaskCards(); //display the array after deleting all cards from the DOM
     console.table(tasksArr);
@@ -113,4 +110,4 @@ function displayTaskCards() {
     setDatasetIndex('task-card');
 };
 
-export {Task , newTaskCard , displayTaskCards , pushTask};
+export {Task , displayTaskCards , pushTask};
