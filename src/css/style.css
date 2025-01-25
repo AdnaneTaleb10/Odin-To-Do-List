@@ -128,8 +128,8 @@ nav div button:hover{
 #current-tab{
     font-size: 3rem;
     color: var(--default-gray);
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0.1em;
     align-self: end;
     margin-right: 16px;
 }
@@ -314,18 +314,16 @@ button.actions{
 }
 
 form{
-    position: absolute;
-    z-index: 3;
-    place-self: center;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    border: 2px solid var(--borders-gray);
-    background-color: white;
-    padding: 20px;
+    background-color: #FFFFFF;
     margin: auto;
+    padding: 20px;
     width: 300px;
-    transition: .2s ease-in-out;
+    border-radius: 10px;
+}
+
+#task-form,
+#project-form{
+    visibility: hidden;
 }
 
 form > h1{
