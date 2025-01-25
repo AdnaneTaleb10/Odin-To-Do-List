@@ -2,6 +2,7 @@ import './css/style.css';
 import setLogo from './modules/logo';
 import {Task , pushTask , displayTaskCards} from './modules/taskControls';
 import { Project , pushProject , displayProjectsCards} from './modules/projectControls';
+import { changeTabLabelTo } from './modules/tab';
 
 
 let tasksArr = [];
@@ -32,11 +33,6 @@ function setDatasetIndex(elementClassName) {
     });
 }
 
-function changeCurrTabLabel(newTab){
-    const currentTab = document.querySelector('#current-tab');
-    currentTab.textContent = newTab;
-}
-
 setLogo();
 
 const homeTab = document.querySelector('#home');
@@ -44,16 +40,16 @@ const projectTab = document.querySelector('#projects')
 
 homeTab.addEventListener('click' , () => {
     clearCards();
-    changeCurrTabLabel('Home')
+    changeTabLabelTo('Home')
     displayTaskCards();
 });
 
 projectTab.addEventListener('click' , () => {
     clearCards();
-    changeCurrTabLabel('Projects')
+    changeTabLabelTo('Projects')
     displayProjectsCards();
 });
 
 window.onload = displayTaskCards();
 
-export { tasksArr, projectsArr, clearCards, setDatasetIndex, changeCurrTabLabel };
+export { tasksArr, projectsArr, clearCards, setDatasetIndex };
