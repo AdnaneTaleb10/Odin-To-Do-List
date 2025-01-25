@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   entry: './src/index.js', // Entry point for JavaScript
   output: {
-    path: path.resolve(__dirname, 'dist'), // Output directory
+    path: path.resolve(__dirname, './dist'), // Output directory
     filename: 'bundle.js', // Default bundle name
     clean: true, // Cleans the output folder
   },
