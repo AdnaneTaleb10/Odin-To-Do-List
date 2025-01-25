@@ -2,7 +2,9 @@ import './css/style.css';
 import setLogo from './modules/logo';
 import {Task , pushTask , displayTaskCards} from './modules/taskControls';
 import { Project , pushProject , displayProjectsCards} from './modules/projectControls';
-import { changeTabLabelTo } from './modules/tab';
+import { changeTabLabelTo, loadHome, loadProjects } from './modules/tab';
+import loadModal from './modules/modals';
+import modals from './modules/modals';
 
 
 let tasksArr = [];
@@ -35,7 +37,7 @@ function setDatasetIndex(elementClassName) {
 
 setLogo();
 
-const homeTab = document.querySelector('#home');
+/* const homeTab = document.querySelector('#home');
 const projectTab = document.querySelector('#projects')
 
 homeTab.addEventListener('click' , () => {
@@ -48,8 +50,8 @@ projectTab.addEventListener('click' , () => {
     clearCards();
     changeTabLabelTo('Projects')
     displayProjectsCards();
-});
+}); */
 
-window.onload = displayTaskCards();
+window.onload = modals() , loadHome() , loadProjects();
 
 export { tasksArr, projectsArr, clearCards, setDatasetIndex };
