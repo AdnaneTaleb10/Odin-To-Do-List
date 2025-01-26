@@ -357,9 +357,16 @@ form > div > button{
     text-align: center;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
+    color: var(--default-gray);
+}
+
+select,
+input[type="date"] {
     color: var(--dark-gray);
 }
+
 button[type="submit"]:hover {
     cursor: pointer;
     filter: brightness(90%);
