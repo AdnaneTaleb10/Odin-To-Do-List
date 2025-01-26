@@ -102,11 +102,30 @@
 
         <div>
           <button type="submit" id="add-task">Add Task</button>
-      </div>
+        </div>
       </form>
 
       <form action="" id="project-form">
+        <h1>New Project</h1>
 
+        <div>
+          <label for="title">Title*</label>
+          <input type="text" id="title" placeholder="Portfolio" minlength="5" required autofocus>
+        </div>
+
+        <div>
+          <label for="link">Link</label>
+          <input type="url" id="link" placeholder="myportfolio.com" minlength="5">
+        </div>
+
+        <div>
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Website to showcase my personal projects" rows="5" cols="5"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" id="add-project">Add Project</button>
+        </div>
       </form>
     </div>
 

@@ -6,7 +6,6 @@ import { changeTabLabelTo, loadHome, loadProjects } from './modules/tab';
 import loadModal from './modules/modals';
 import modals from './modules/modals';
 
-
 let tasksArr = [];
 let projectsArr = [];
 
@@ -36,21 +35,6 @@ function setDatasetIndex(elementClassName) {
 }
 
 setLogo();
-
-/* const homeTab = document.querySelector('#home');
-const projectTab = document.querySelector('#projects')
-
-homeTab.addEventListener('click' , () => {
-    clearCards();
-    changeTabLabelTo('Home')
-    displayTaskCards();
-});
-
-projectTab.addEventListener('click' , () => {
-    clearCards();
-    changeTabLabelTo('Projects')
-    displayProjectsCards();
-}); */
 
 window.onload = modals() , loadHome() , loadProjects();
 

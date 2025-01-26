@@ -321,10 +321,10 @@ form{
     border-radius: 10px;
 }
 
-#task-form,
+/* #task-form,
 #project-form{
     visibility: hidden;
-}
+} */
 
 form > h1{
     color: var(--dark-gray);

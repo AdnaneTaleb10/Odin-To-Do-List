@@ -15,14 +15,17 @@ function modals(){
     createTaskBtn.addEventListener('click' , () => {
         optionsModals.style.visibility = 'hidden';
         formsModal.style.visibility = 'visible';
-        taskForm.style.visibility = 'visible';
+        taskForm.reset();
+        projectForm.style.display = 'none';
+        taskForm.style.display = 'block';
         closeModalBehavior(formsModal);
     })
 
     createProjectBtn.addEventListener('click' , () => {
         optionsModals.style.visibility = 'hidden';
         formsModal.style.visibility = 'visible';
-        projectForm.style.visibility = 'visible';
+        taskForm.style.display = 'none';
+        projectForm.style.display = 'block';
         closeModalBehavior(formsModal);
     })
 }
@@ -31,8 +34,8 @@ function closeModalBehavior(modal){
     window.onclick = function(event){
         if(event.target === modal){
             modal.style.visibility = 'hidden';
-            taskForm.style.visibility = 'hidden';
-            projectForm.style.visibility = 'hidden';
+            taskForm.style.display = 'none';
+            projectForm.style.display = 'none';
         }
     }
 }
