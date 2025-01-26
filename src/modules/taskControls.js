@@ -93,7 +93,7 @@ function removeTask(btn){
 
     clearTask()   //This will just delete the card from the dom, not from the array of tasks
 
-    displayTaskCards(); //display the array after deleting all cards from the DOM
+    displayTask(); //display the array after deleting all cards from the DOM
     console.table(tasksArr);
 }
 
@@ -110,11 +110,11 @@ function pushTask(task){
     filterPriority(task);
 }
 
-function displayTaskCards() {
+function displayTask() {
     for(const task of tasksArr) {
         newTaskCard(task);
     };
     setDatasetIndex('task-card');
 };
 
-export {Task , newTaskCard , displayTaskCards , pushTask};
+export {Task , newTaskCard , displayTask , pushTask};

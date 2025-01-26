@@ -1,6 +1,6 @@
 import { clearCards } from "..";
-import { displayProjectsCards } from "./projectControls";
-import { displayTaskCards } from "./taskControls";
+import { displayProjects } from "./projectControls";
+import { displayTask } from "./taskControls";
 
 const homeBtn = document.querySelector('#home');
 const projectsBtn = document.querySelector('#projects');
@@ -9,17 +9,17 @@ function loadHome(){
     homeBtn.addEventListener('click' , () => {
         clearCards();
         changeTabLabelTo('Home');
-        displayTaskCards();
+        displayTask();
     })
 
-    displayTaskCards();
+    displayTask();
 }
 
 function loadProjects(){
     projectsBtn.addEventListener('click' , () => {
         clearCards();
         changeTabLabelTo('Projects');
-        displayProjectsCards();
+        displayProjects();
     })
 }
 

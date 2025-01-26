@@ -1,8 +1,8 @@
 import './css/style.css';
 import setLogo from './modules/logo';
-import {Task , pushTask , displayTaskCards} from './modules/taskControls';
-import { Project , pushProject , displayProjectsCards} from './modules/projectControls';
-import { changeTabLabelTo, loadHome, loadProjects } from './modules/tab';
+import { Task , pushTask } from './modules/taskControls';
+import { Project , pushProject } from './modules/projectControls';
+import { loadHome, loadProjects } from './modules/tab';
 import loadModal from './modules/modals';
 import modals from './modules/modals';
 

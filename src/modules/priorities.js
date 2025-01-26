@@ -1,4 +1,4 @@
-import { newTaskCard , displayTaskCards } from "./taskControls";
+import { newTaskCard , displayTask } from "./taskControls";
 import { clearCards } from "..";
 import { changeTabLabelTo } from "./tab.js";
 
@@ -45,7 +45,7 @@ function labelFilteredPrior(btn){
         priority.filtred = null;
         clearCards();
         changeTabLabelTo('Home');
-        displayTaskCards()
+        displayTask()
     }
 }
 

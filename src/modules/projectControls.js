@@ -65,7 +65,7 @@ function removeProject(btn){
 
     clearProjects()
 
-    displayProjectsCards();
+    displayProjects();
     console.table(projectsArr);
 }
 
@@ -81,11 +81,11 @@ function pushProject(project){
     projectsArr.push(project);
 }
 
-function displayProjectsCards() {
+function displayProjects() {
     for(const proj of projectsArr) {
         newProject(proj);
     };
     setDatasetIndex('project');
 };
 
-export { Project , pushProject ,displayProjectsCards };
+export { Project , pushProject ,displayProjects };
