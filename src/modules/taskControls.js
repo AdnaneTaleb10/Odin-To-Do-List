@@ -1,6 +1,7 @@
 import create from "./domCreate.js";
 import { tasksArr , setDatasetIndex } from "../index.js";
 import { filterPriority } from "./priorities.js";
+import { priority } from "./priorities.js";
 
     // Card
     // | Priority
@@ -72,7 +73,10 @@ function newTaskCard(task){
         };
     };
 
-    removeBtn.addEventListener('click' , () => removeTask(removeBtn));
+    removeBtn.addEventListener('click' , () => {
+        removeTask(removeBtn);
+    } 
+);
 
     dateAndActions.appendChild(dueDate);
     dateAndActions.appendChild(editBtn);
@@ -90,11 +94,10 @@ function removeTask(btn){
     const btnCard = btn.parentElement.parentElement.parentElement;
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
+    filterPriority();
 
-    clearTask()   //This will just delete the card from the dom, not from the array of tasks
-
-    displayTask(); //display the array after deleting all cards from the DOM
-    console.table(tasksArr);
+/*     clearTask()   //This will just delete the card from the dom, not from the array of tasks
+    displayTask(); //display the array after deleting all cards from the DOM */
 }
 
 
@@ -107,7 +110,7 @@ function clearTask() {
 
 function pushTask(task){
     tasksArr.push(task);
-    filterPriority(task);
+    filterPriority();
 }
 
 function displayTask() {

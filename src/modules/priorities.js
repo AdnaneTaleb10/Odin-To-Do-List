@@ -1,5 +1,5 @@
 import { newTaskCard , displayTask } from "./taskControls";
-import { clearCards } from "..";
+import { clearCards, tasksArr } from "..";
 import { changeTabLabelTo } from "./tab.js";
 
 const priority = (function(){
@@ -17,12 +17,15 @@ const priority = (function(){
     return{filtred , low , medium , high , displayByPrior};
 })();
 
-function filterPriority(task){
-    let prior = task.priority;
-    priority[`${prior}`].push(task);
-    console.log(priority.high);
-    console.log(priority.medium);
-    console.log(priority.low);
+function filterPriority(){
+    priority.low = [];
+    priority.medium = [];
+    priority.high = [];
+
+    for(let i = 0 ; i < tasksArr.length ; i++){
+        let taskPrior = tasksArr[i].priority;
+        priority[`${taskPrior}`].push(tasksArr[i]);
+    }
 }
 
 const lowPriorBtn = document.querySelector('#low');
