@@ -12,7 +12,7 @@ function loadHome(){
         displayTask();
     })
 
-    displayTask();
+    displayTask(); /* djhf */
 }
 
 function loadProjects(){

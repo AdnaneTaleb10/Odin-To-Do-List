@@ -26,7 +26,7 @@ function filterPriority(){
         let taskPrior = tasksArr[i].priority;
         priority[`${taskPrior}`].push(tasksArr[i]);
     }
-}
+} /* sdkjfksdj */
 
 const lowPriorBtn = document.querySelector('#low');
 lowPriorBtn.addEventListener('click' , () => labelFilteredPrior(lowPriorBtn))
