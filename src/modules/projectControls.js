@@ -66,7 +66,6 @@ function removeProject(btn){
     clearProjects()
 
     displayProjects();
-    console.table(projectsArr);
 }
 
 

@@ -12,7 +12,7 @@ function loadHome(){
         displayTask();
     })
 
-    displayTask(); /* djhf */
+    displayTask();
 }
 
 function loadProjects(){
@@ -29,4 +29,3 @@ function changeTabLabelTo(newTab){
 }
 
 export{ loadHome , loadProjects , changeTabLabelTo }
-

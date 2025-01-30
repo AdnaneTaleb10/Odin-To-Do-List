@@ -95,7 +95,6 @@ function removeTask(btn){
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
     filterPriority();
-
 /*     clearTask()   //This will just delete the card from the dom, not from the array of tasks
     displayTask(); //display the array after deleting all cards from the DOM */
 }
