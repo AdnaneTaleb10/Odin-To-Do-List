@@ -326,6 +326,10 @@ form{
     display: none;
 }
 
+.hide {
+    display: none;
+}
+
 form > h1{
     color: var(--dark-gray);
     text-align: center;

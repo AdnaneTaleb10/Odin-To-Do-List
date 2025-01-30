@@ -6,13 +6,13 @@ const homeBtn = document.querySelector('#home');
 const projectsBtn = document.querySelector('#projects');
 
 function loadHome(){
+    displayTask();
+
     homeBtn.addEventListener('click' , () => {
         clearCards();
         changeTabLabelTo('Home');
         displayTask();
     })
-
-    displayTask();
 }
 
 function loadProjects(){

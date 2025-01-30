@@ -8,7 +8,7 @@ const projectForm = document.querySelector('#project-form');
 const addTask = document.querySelector('#add-task');
 const addProject = document.querySelector('#add-project');
 
-function modals(){
+function loadModals(){
     addTask.addEventListener('click' , (event) => {
         event.preventDefault();
     })
@@ -59,4 +59,4 @@ function closeModalBehavior(modal){
 //     let task = new Task(title, project)
 // };
 
-export default modals;
+export default loadModals;

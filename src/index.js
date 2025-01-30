@@ -3,8 +3,8 @@ import setLogo from './modules/logo';
 import { Task , pushTask } from './modules/taskControls';
 import { Project , pushProject } from './modules/projectControls';
 import { loadHome, loadProjects } from './modules/tab';
-import loadModal from './modules/modals';
-import modals from './modules/modals';
+import loadModals from './modules/modals';
+import loadFilter from './modules/prioritiesFilter';
 
 let tasksArr = [];
 let projectsArr = [];
@@ -23,6 +23,21 @@ let projectsArr = [];
     })
 }
 
+// const hide = (function(){
+//     function hideCards(){
+//         const cards = document.querySelectorAll('.task-card');
+//         cards.forEach(card => {
+//             card.classList.add('hide');
+//         });
+//     };
+//     function hideProjects(){
+//         const projs = document.querySelectorAll('.project-card');
+//         projs.forEach(proj => {
+//             proj.classList.add('hide');
+//         });
+//     };
+// })();
+
 function setDatasetIndex(elementClassName) {
     let index = 0;
     const elements = document.querySelectorAll(`.${elementClassName}`);
@@ -34,6 +49,6 @@ function setDatasetIndex(elementClassName) {
 
 setLogo();
 
-window.onload = modals() , loadHome() , loadProjects();
+window.onload = loadModals() , loadHome() , loadProjects() , loadFilter();
 
 export { tasksArr, projectsArr, clearCards, setDatasetIndex };
