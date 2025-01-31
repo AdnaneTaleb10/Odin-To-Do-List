@@ -9,9 +9,9 @@ import loadFilter from './modules/prioritiesFilter';
 let tasksArr = [];
 let projectsArr = [];
 
- pushTask(new Task("Header", 'Restaurant Page', 'High', '24-06-2024', 'Header components: Logo, dark/light mode theme icon, and login button'));
- pushTask(new Task('Nav', 'Dashboard', 'high', '13-10-2024', 'nav icons'));
- pushTask(new Task('Main', 'Library', 'medium', '10-10-2050', 'libros'));
+ pushTask(new Task("Header", 'Restaurant Page', 'high', '24-06-2024', 'Header components: Logo, dark/light mode theme icon, and login button'));
+ pushTask(new Task('Nav', 'Dashboard', 'medium', '13-10-2024', 'nav icons'));
+ pushTask(new Task('Main', 'Library', 'low', '10-10-2050', 'libros'));
 
  pushProject(new Project('To-do list', 'teste.com', 'Ah sei lá n sei oq'));
  pushProject(new Project('Outro projeto', '', 'Ah sei lá n sei oq'));
@@ -23,24 +23,9 @@ let projectsArr = [];
     })
 }
 
-// const hide = (function(){
-//     function hideCards(){
-//         const cards = document.querySelectorAll('.task-card');
-//         cards.forEach(card => {
-//             card.classList.add('hide');
-//         });
-//     };
-//     function hideProjects(){
-//         const projs = document.querySelectorAll('.project-card');
-//         projs.forEach(proj => {
-//             proj.classList.add('hide');
-//         });
-//     };
-// })();
-
-function setDatasetIndex(elementClassName) {
+function setDatasetIndex() {
     let index = 0;
-    const elements = document.querySelectorAll(`.${elementClassName}`);
+    const elements = document.querySelectorAll('.card');
     elements.forEach(element => {
         element.dataset.index = index;
         index++;

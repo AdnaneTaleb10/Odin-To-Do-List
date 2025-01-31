@@ -1,5 +1,5 @@
 import create from "./domCreate";
-import { projectsArr , setDatasetIndex } from "../index";
+import { clearCards, projectsArr , setDatasetIndex } from "../index";
 
 class Project {
     constructor(title, link , description) {
@@ -48,6 +48,10 @@ function newProject(project){
 
     const editBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-pen-to-square', 'edit-project');
     const removeBtn = create.createElementWithClass('button' , 'fa-regular', 'fa-square-minus', 'remove-project');
+    removeBtn.addEventListener('click' , () => {
+        removeProject(removeBtn);
+        displayProjects();
+    })
 
     actions.appendChild(editBtn);
     actions.appendChild(removeBtn);
@@ -59,13 +63,9 @@ function newProject(project){
 }
 
 function removeProject(btn){
-    const btnProject = btn.parentElement.parentElement.parentElement;
-    projectsArr.splice(btn.dataset.index , 1);
-    btnProject.remove();
-
-    clearProjects()
-
-    displayProjects();
+    const projCard = btn.parentElement.parentElement.parentElement;
+    projectsArr.splice(projCard.dataset.index , 1);
+    projCard.remove();
 }
 
 
@@ -81,10 +81,11 @@ function pushProject(project){
 }
 
 function displayProjects() {
+    clearCards();
     for(const proj of projectsArr) {
         newProject(proj);
     };
-    setDatasetIndex('project');
+    setDatasetIndex();
 };
 
-export { Project , pushProject ,displayProjects };
+export { Project , pushProject , displayProjects , clearProjects };

@@ -1,5 +1,5 @@
 import create from "./domCreate.js";
-import { tasksArr , setDatasetIndex } from "../index.js";
+import { tasksArr , setDatasetIndex, clearCards } from "../index.js";
 
     // Card
     // | Priority
@@ -73,7 +73,6 @@ function newTaskCard(task){
 
     removeBtn.addEventListener('click' , () => {
         removeTask(removeBtn);
-        clearTask();
         displayTask();
     } 
 );
@@ -88,10 +87,9 @@ function newTaskCard(task){
     minView.appendChild(card)
 }
 
-
-
 function removeTask(btn){
     const btnCard = btn.parentElement.parentElement.parentElement;
+    console.log(btnCard)
     tasksArr.splice(btnCard.dataset.index, 1);
     btnCard.remove();
     console.table(tasksArr);
@@ -110,10 +108,11 @@ function pushTask(task){
 }
 
 function displayTask() {
+    clearCards();
     for(const task of tasksArr) {
         newTaskCard(task);
     };
-    setDatasetIndex('task-card');
+    setDatasetIndex();
 };
 
 export {Task , newTaskCard , displayTask , pushTask};

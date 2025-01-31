@@ -1,3 +1,8 @@
+import { clearCards } from "..";
+import { clearProjects, displayProjects, Project, pushProject } from "./projectControls";
+import { changeTabLabelTo } from "./tab";
+import { displayTask, newTaskCard, pushTask, Task } from "./taskControls";
+
 const optionsModals = document.querySelector('#modal-option');
 const formsModal = document.querySelector('#modal-forms');
 const createBtn = document.querySelector('#create');
@@ -11,14 +16,18 @@ const addProject = document.querySelector('#add-project');
 function loadModals(){
     addTask.addEventListener('click' , (event) => {
         event.preventDefault();
+        submitTask();
     })
 
     addProject.addEventListener('click' , (event) => {
         event.preventDefault();
+        submitProject();
     })
 
     createBtn.addEventListener('click' , () => {
         optionsModals.style.visibility = 'visible';
+        taskForm.style.display = 'none';
+        projectForm.style.display = 'none';
         closeModalBehavior(optionsModals);
     })
 
@@ -50,13 +59,46 @@ function closeModalBehavior(modal){
     }
 }
 
-// function submitTask() {
-//     const title = document.querySelector('#task-title').value;
-//     const project = document.querySelector('#projects-dropdown').value;
-//     const priority = document.querySelector('#task-priority').value;
-//     const dueDate = document.querySelector('#due-date').value;
-//     const description = document.querySelector('#project-desrcription').value;
-//     let task = new Task(title, project)
-// };
+ function submitTask() {
+    const title = document.querySelector('#task-title');
+    const project = document.querySelector('#projects-dropdown');
+    const priority = document.querySelector('#task-priority');
+    const dueDate = document.querySelector('#due-date');
+    const description = document.querySelector('#project-desrcription');
+
+    if(title.value !== ''){
+        let task = new Task(title.value , project.value , priority.value , dueDate.value , description.value);
+        pushTask(task);
+        clearCards()
+        displayTask();
+        changeTabLabelTo("Home");
+
+        formsModal.style.visibility = 'hidden';
+        taskForm.style.display = 'none';
+        title.style.border = '2px solid var(--borders-gray)';
+    }else{
+        title.style.border = '2px solid var(--red)';
+    }
+ }
+
+ function submitProject(){
+    const title = document.querySelector('#project-title');
+    const link = document.querySelector('#link');
+    const description = document.querySelector('#project-description');
+
+    if(title.value !== ''){
+        let project = new Project(title.value , link.value , description.value);
+        pushProject(project);
+        clearProjects();
+        displayProjects();
+        changeTabLabelTo("Projects")
+        formsModal.style.visibility = 'hidden';
+        projectForm.style.display = 'none';
+
+        title.style.border = '2px solid var(--borders-gray)';
+    }else{
+        title.style.border = '2px solid var(--red)';
+    }
+ }
 
 export default loadModals;
