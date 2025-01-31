@@ -1,4 +1,4 @@
-import { changeTabLabelTo } from "./tab";
+import { changeTabLabelTo , lastTab } from "./tab";
 
 
 let filter = false;
@@ -22,7 +22,7 @@ function filterPriority(priority){
     }else{
         filter = null;
         removeFilter();
-        changeTabLabelTo('Home');
+        changeTabLabelTo(lastTab);
     }
 }
 

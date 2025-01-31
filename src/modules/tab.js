@@ -4,11 +4,13 @@ import { displayTask } from "./taskControls";
 
 const homeBtn = document.querySelector('#home');
 const projectsBtn = document.querySelector('#projects');
+let lastTab = 'Home';
 
 function loadHome(){
     displayTask();
 
     homeBtn.addEventListener('click' , () => {
+        lastTab = 'Home';
         clearCards();
         changeTabLabelTo('Home');
         displayTask();
@@ -17,6 +19,7 @@ function loadHome(){
 
 function loadProjects(){
     projectsBtn.addEventListener('click' , () => {
+        lastTab = 'Projects';
         clearCards();
         changeTabLabelTo('Projects');
         displayProjects();
@@ -28,4 +31,4 @@ function changeTabLabelTo(newTab){
     currentTab.textContent = newTab;
 }
 
-export{ loadHome , loadProjects , changeTabLabelTo }
+export{ lastTab , loadHome , loadProjects , changeTabLabelTo }

@@ -13,7 +13,7 @@ const projectForm = document.querySelector('#project-form');
 const addTask = document.querySelector('#add-task');
 const addProject = document.querySelector('#add-project');
 
-function loadModals(){
+function modals(){
     addTask.addEventListener('click' , (event) => {
         event.preventDefault();
         submitTask();
@@ -101,4 +101,4 @@ function closeModalBehavior(modal){
     }
  }
 
-export default loadModals;
+export default modals;

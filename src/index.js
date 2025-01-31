@@ -3,7 +3,7 @@ import setLogo from './modules/logo';
 import { Task , pushTask } from './modules/taskControls';
 import { Project , pushProject } from './modules/projectControls';
 import { loadHome, loadProjects } from './modules/tab';
-import loadModals from './modules/modals';
+import modals from './modules/modals';
 import loadFilter from './modules/prioritiesFilter';
 
 let tasksArr = [];
@@ -34,6 +34,6 @@ function setDatasetIndex() {
 
 setLogo();
 
-window.onload = loadModals() , loadHome() , loadProjects() , loadFilter();
+window.onload = modals() , loadHome() , loadProjects() , loadFilter();
 
 export { tasksArr, projectsArr, clearCards, setDatasetIndex };

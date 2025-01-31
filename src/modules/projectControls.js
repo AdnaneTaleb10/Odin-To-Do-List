@@ -37,7 +37,7 @@ function newProject(project){
     title.classList.add("project-title");
 
     const link = create.createTextElement("a" , `${project.link}`);
-    link.href = `${project.link}`;
+    link.href = project.link;
 
     info.appendChild(title);
     info.appendChild(link);
