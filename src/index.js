@@ -13,14 +13,21 @@ pushTask(
   new Task(
     "Header",
     "Restaurant Page",
-    "high",
-    "24-06-2024",
+    "High",
+    "2024-10-06",
     "Header components: Logo, dark/light mode theme icon, and login button"
   )
 );
-pushTask(new Task("Nav", "Dashboard", "medium", "13-10-2024", "nav icons"));
-pushTask(new Task("Main", "Library", "low", "10-10-2050", "libros"));
-
+pushTask(new Task("Nav", "Dashboard", "low", "2024-12-07", "nav icons"));
+pushTask(
+  new Task(
+    "IDs and Classes best practices",
+    "",
+    "medium",
+    "2024-10-13",
+    "Gotta have a clean code huh?"
+  )
+);
 pushProject(new Project("To-do list", "teste.com", "Ah sei lá n sei oq"));
 pushProject(new Project("Outro projeto", "", "Ah sei lá n sei oq"));
 

@@ -1,5 +1,6 @@
 import create from "./domCreate.js";
 import { tasksArr, setDatasetIndex, clearCards } from "../index.js";
+import { format, parseISO } from "date-fns";
 
 // Card
 // | Priority
@@ -15,10 +16,14 @@ import { tasksArr, setDatasetIndex, clearCards } from "../index.js";
 
 class Task {
   constructor(title, project, priority, dueDate, description) {
+    const yyyy = dueDate.slice(0, 4);
+    const mm = dueDate.slice(5, 7);
+    const dd = dueDate.slice(8, 10);
+
     this.title = title;
     this.project = project;
     this.priority = priority.toLowerCase();
-    this.dueDate = dueDate;
+    this.dueDate = `${mm}-${dd}-${yyyy}`;
     this.description = description;
     this.done = false;
   }
