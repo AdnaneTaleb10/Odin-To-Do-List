@@ -1,4 +1,4 @@
-import { clearCards } from "..";
+import { clearCards, tasksArr, projectsArr } from "..";
 import {
   clearProjects,
   displayProjects,
@@ -37,6 +37,7 @@ function modals() {
   });
 
   createTaskBtn.addEventListener("click", () => {
+    addProjectOption();
     optionsModals.style.visibility = "hidden";
     formsModal.style.visibility = "visible";
     taskForm.reset();
@@ -62,6 +63,27 @@ function closeModalBehavior(modal) {
       projectForm.style.display = "none";
     }
   };
+}
+
+function addProjectOption() {
+  const availableProjects = document.querySelector("#projects-dropdown");
+  for (let i = 0; i < projectsArr.length; i++) {
+    if (availableProjects.lastChild.textContent !== "None") {
+      console.log(availableProjects.lastChild);
+      availableProjects.lastChild.remove();
+    }
+  }
+
+  for (let i = 0; i < projectsArr.length; i++) {
+    availableProjects.appendChild(createOption(projectsArr[i].title));
+  }
+}
+
+function createOption(value) {
+  let option = document.createElement("option");
+  option.value = value;
+  option.textContent = value;
+  return option;
 }
 
 function submitTask() {
