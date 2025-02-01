@@ -148,7 +148,8 @@ nav div button:hover {
 }
 
 #full-view {
-  display: flex;
+  display: grid;
+  grid-template-rows: min-content;
   border-right: 2px solid var(--borders-gray);
 }
 
@@ -264,13 +265,16 @@ button.actions {
   cursor: pointer;
 }
 
-.priority.high {
+.red,
+.high {
   background-color: var(--red);
 }
-.priority.medium {
+.yellow,
+.medium {
   background-color: var(--yellow);
 }
-.priority.low {
+.blue,
+.low {
   background-color: var(--argentinian-blue);
 }
 
@@ -461,4 +465,68 @@ button[type="submit"]:hover {
 
 .project-actions > button:hover {
   background-color: var(--light-gray);
+}
+
+/* FULL VIEW */
+
+#task-full {
+  display: grid;
+  grid-template-columns: 1fr /* 5em */;
+  grid-template-rows: repeat(min-content, 3);
+  position: relative;
+  padding: 1em;
+}
+
+#task-full-info {
+  grid-row: 1 / 2;
+
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+
+  color: var(--black);
+  font-size: 1.3rem;
+}
+
+#task-full-info > .fa-circle {
+  color: transparent;
+  border-radius: 100%;
+  margin-top: 4px;
+  font-size: 0.7rem;
+}
+
+#task-full-status {
+  grid-row: 2 / 3;
+
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+
+  color: var(--default-gray);
+  font-size: 1.2rem;
+}
+
+#task-full-status > .checkbox {
+  opacity: 60%;
+}
+
+#task-full-status > .checkbox:checked {
+  opacity: 100%;
+}
+
+#task-full-notes {
+  color: var(--dark-gray);
+  padding-top: 1.5em;
+}
+
+.point {
+  color: var(--borders-gray);
+  font-size: 1.2rem;
+}
+
+.line {
+  background-color: var(--borders-gray);
+  height: 2px;
+  align-self: start;
+  grid-column: 1 / -1;
 }

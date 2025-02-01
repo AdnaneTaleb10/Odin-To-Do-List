@@ -5,6 +5,7 @@ import { Project, pushProject } from "./modules/projectControls";
 import { loadHome, loadProjects } from "./modules/tab";
 import modals from "./modules/modals";
 import loadFilter from "./modules/prioritiesFilter";
+import expandTask from "./modules/expanded";
 
 let tasksArr = [];
 let projectsArr = [];
@@ -50,5 +51,7 @@ function setDatasetIndex() {
 setLogo();
 
 (window.onload = modals()), loadHome(), loadProjects(), loadFilter();
+
+/* expandTask(0); */
 
 export { tasksArr, projectsArr, clearCards, setDatasetIndex };

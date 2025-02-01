@@ -16,14 +16,10 @@ import { format, parseISO } from "date-fns";
 
 class Task {
   constructor(title, project, priority, dueDate, description) {
-    const yyyy = dueDate.slice(0, 4);
-    const mm = dueDate.slice(5, 7);
-    const dd = dueDate.slice(8, 10);
-
     this.title = title;
     this.project = project;
     this.priority = priority.toLowerCase();
-    this.dueDate = `${mm}-${dd}-${yyyy}`;
+    this.dueDate = dueDate;
     this.description = description;
     this.done = false;
   }
