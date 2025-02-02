@@ -72,7 +72,7 @@ main {
   display: grid;
   grid-template-columns: 4em 1fr 1fr;
   grid-template-rows: 4em 1fr;
-  height: 100dvh;
+  height: 100vh;
 }
 
 header {
@@ -279,7 +279,6 @@ button.actions {
 }
 
 #modal-option {
-  visibility: hidden;
   position: fixed;
   width: 100vw;
   height: 100dvh;
@@ -314,7 +313,7 @@ button.actions {
   cursor: pointer;
 }
 
-#modal-forms {
+/* #modal-forms {
   visibility: hidden;
   height: 100dvh;
   width: 100vw;
@@ -327,7 +326,7 @@ button.actions {
   background-color: rgba(0, 0, 0, 0.4);
   display: grid;
   place-content: center;
-}
+} */
 
 form {
   background-color: #ffffff;
@@ -337,13 +336,14 @@ form {
   border-radius: 10px;
 }
 
-#task-form,
-#project-form {
-  display: none;
-}
-
 .hide {
   display: none;
+  visibility: hidden;
+}
+
+.display {
+  display: block;
+  visibility: visible;
 }
 
 form > h1 {
