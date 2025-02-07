@@ -19,7 +19,7 @@ function hide(...elements) {
 function display(...elements) {
   for (let element of elements) {
     element.classList.remove("hide");
-    element.classList.add("hide");
+    element.classList.add("display");
   }
 }
 
