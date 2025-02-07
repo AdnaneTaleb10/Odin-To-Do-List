@@ -336,6 +336,8 @@ button.remove-task:hover {
   cursor: pointer;
 }
 
+
+
 /* #modal-forms {
   visibility: hidden;
   height: 100dvh;
@@ -353,10 +355,16 @@ button.remove-task:hover {
 
 form {
   background-color: #ffffff;
+  border: 2px solid var(--default-gray);
   margin: auto;
   padding: 20px;
   width: 300px;
   border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 1;
 }
 
 .hide {

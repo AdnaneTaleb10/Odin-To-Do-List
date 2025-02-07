@@ -1,6 +1,6 @@
 import { projects } from "../models/projects";
 import { tasks } from "../models/tasks";
-import newTaskCard from "../views/modals/taskCard";
+import newTaskCard from "../models/taskCard";
 
 const minView = document.querySelector("#min-view");
 
