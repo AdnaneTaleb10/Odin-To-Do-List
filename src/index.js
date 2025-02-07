@@ -25,6 +25,8 @@ const task2 = new Task(
   "Lorem ipsum notes"
 );
 
+console.log(new Project("portfolio" , "youtube.com" , "subscribe to my channel"));
+
 linkTasksToProjects();
 displayTasks();
 
