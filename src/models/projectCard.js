@@ -1,4 +1,4 @@
-import create from "../modules/domCreate";
+import create from "../others/domCreate";
 
 export default function newProjectCard(project) {
   const cardDiv = create.createElementWithClass("div", "project-card");
@@ -32,7 +32,6 @@ export default function newProjectCard(project) {
 
   return cardDiv;
 }
-
 
 // Layout:
 //  div.project-card

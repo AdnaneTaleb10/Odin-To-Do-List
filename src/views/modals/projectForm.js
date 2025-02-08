@@ -1,4 +1,4 @@
-import { submitProj } from "../../controllers/controller";
+import { submitProj } from "../../controllers/projectsController";
 import { Project } from "../../models/projects";
 import { dispalyForm } from "./displayOptions";
 

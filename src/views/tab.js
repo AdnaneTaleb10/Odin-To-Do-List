@@ -1,4 +1,6 @@
-import { changeLabelTo, clearDisplayed, displayProjects, displayTasks } from "../controllers/controller";
+import { changeLabelTo , clearDisplayed } from "../controllers/general";
+import { displayProjects } from "../controllers/projectsController";
+import { displayTasks } from "../controllers/tasksController";
 
 const homeBtn = document.querySelector("#home");
 const projBtn = document.querySelector("#projects");

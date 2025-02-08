@@ -1,11 +1,6 @@
-import {
-  clearDisplayed,
-  displayTasks,
-  linkTasksToProjects,
-  submitTask,
-} from "../../controllers/controller";
-import { Task, tasks } from "../../models/tasks";
+import { Task} from "../../models/tasks";
 import { dispalyForm, hide } from "./displayOptions";
+import { submitTask } from "../../controllers/tasksController";
 
 const baseModal = document.querySelector("#modal-option");
 const createTaskBtn = document.querySelector("#create-task");

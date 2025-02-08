@@ -5,7 +5,7 @@ const createTaskBtn = document.querySelector("#create-task");
 const createProjkBtn = document.querySelector("#create-project");
 
 buttonToCreate.addEventListener("click", () => {
-  display(baseModal, optionToCreate, createTaskBtn, createProjkBtn);
+  unhide(baseModal, optionToCreate, createTaskBtn, createProjkBtn);
   closeModalBheavior(baseModal);
 });
 
@@ -16,7 +16,7 @@ function hide(...elements) {
   }
 }
 
-function display(...elements) {
+function unhide(...elements) {
   for (let element of elements) {
     element.classList.remove("hide");
     element.classList.add("display");
@@ -26,7 +26,7 @@ function display(...elements) {
 function dispalyForm(form) {
   form.reset();
   hide(optionToCreate, createTaskBtn, createProjkBtn);
-  display(form);
+  unhide(form);
   closeModalBheavior(baseModal);
 }
 
@@ -48,4 +48,4 @@ function closeModalBheavior(modal) {
   };
 }
 
-export { dispalyForm, display, hide };
+export { dispalyForm, unhide, hide };

@@ -1,4 +1,4 @@
-import create from "../modules/domCreate";
+import create from "../others/domCreate";
 
 export default function newTaskCard(task) {
   const cardDiv = create.createElementWithClass("div", "task-card");

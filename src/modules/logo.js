@@ -1,6 +1,6 @@
 import favicon from "../Assets/to-do-list.png";
 import headerLogo from "../Assets/logo.png";
-import create from "./domCreate";
+import create from "../others/domCreate";
 
 export default function setLogo() {
   let headTitle = document.querySelector("head");

@@ -1,4 +1,4 @@
-import { updateIds } from "../controllers/controller";
+import { updateIds } from "../controllers/general";
 
 let projects = [];
 

@@ -4,9 +4,9 @@ import { Task, tasks } from "./models/tasks.js";
 import { Project } from "./models/projects.js";
 import {
   linkTasksToProjects,
-  displayTasks,
   updateIds,
-} from "./controllers/controller.js";
+} from "./controllers/general.js";
+import { displayTasks } from "./controllers/tasksController.js";
 import loadTaskForm from "./views/modals/taskForm.js";
 import { loadProjForm } from "./views/modals/projectForm.js";
 import loadTab from "./views/tab.js";
