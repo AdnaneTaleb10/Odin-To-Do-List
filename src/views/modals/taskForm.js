@@ -2,6 +2,7 @@ import {
   clearDisplayed,
   displayTasks,
   linkTasksToProjects,
+  submitTask,
 } from "../../controllers/controller";
 import { Task, tasks } from "../../models/tasks";
 import { dispalyForm, hide } from "./displayOptions";
@@ -11,7 +12,7 @@ const createTaskBtn = document.querySelector("#create-task");
 const taskForm = document.querySelector("#task-form");
 const submitTaskBtn = document.querySelector("#add-task");
 
-export default function loadTaskForm() {
+export function loadTaskForm() {
   createTaskBtn.addEventListener("click", () => {
     hide(taskForm);
     dispalyForm(taskForm);
@@ -19,15 +20,11 @@ export default function loadTaskForm() {
 
   submitTaskBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    submitTask();
-    clearDisplayed();
-    displayTasks();
-    hide(taskForm);
-    hide(baseModal);
+    submitTask(taskForm , baseModal);
   });
 }
 
-function submitTask() {
+export function createTask() {
   let taskTitle = document.querySelector("#task-title").value;
   let project = document.querySelector("#projects-dropdown").value;
   let priority = document.querySelector("#task-priority").value;

@@ -130,7 +130,10 @@ nav div button:hover {
   background-color: rgb(235, 235, 235);
 }
 
+/* Min view */
+
 #min-view {
+  position: relative;
   height: 100%;
   border-right: 2px solid var(--borders-gray);
   grid-column: 2 / 3;
@@ -146,6 +149,7 @@ nav div button:hover {
   position: absolute;
   bottom: 0.1em;
   align-self: end;
+  right: 0.1em;
   margin-right: 16px;
 }
 
@@ -181,6 +185,8 @@ nav div button:hover {
   font-size: 2rem;
   font-weight: 700;
 }
+
+/* TASKS CARD */
 
 .task-card {
   margin: 1em 1em 0 1em;
@@ -300,6 +306,8 @@ button.remove-task:hover {
 .low {
   background-color: var(--argentinian-blue);
 }
+
+/* MODALS */
 
 #modal-option {
   position: fixed;
@@ -423,12 +431,14 @@ button[type="submit"]:hover {
   filter: brightness(90%);
 }
 
+/* PROJECTS CARD */
+
 .project-card {
   margin: 1em 1em 0 1em;
   border: 2px solid var(--default-gray);
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 0.6em 1fr;
+  grid-template-columns: 0.6em 1fr min-content;
   grid-template-rows: 1fr;
   transition: 0.1s ease-in-out;
 }
@@ -503,9 +513,7 @@ button[type="submit"]:hover {
 #task-full {
   display: grid;
   grid-template-columns: 1fr /* 5em */;
-  grid-template-rows: repeat(min-content, 3);
-  position: relative;
-  padding: 1em;
+  grid-template-rows: repeat(auto-fit, min-content);
 }
 
 #task-full-info {
@@ -524,30 +532,6 @@ button[type="submit"]:hover {
   border-radius: 100%;
   margin-top: 4px;
   font-size: 0.7rem;
-}
-
-#task-full-status {
-  grid-row: 2 / 3;
-
-  display: flex;
-  align-items: center;
-  column-gap: 1em;
-
-  color: var(--default-gray);
-  font-size: 1.2rem;
-}
-
-#task-full-status > .checkbox {
-  opacity: 60%;
-}
-
-#task-full-status > .checkbox:checked {
-  opacity: 100%;
-}
-
-#task-full-notes {
-  color: var(--dark-gray);
-  padding-top: 1.5em;
 }
 
 .point {

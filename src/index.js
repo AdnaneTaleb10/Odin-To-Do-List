@@ -8,6 +8,7 @@ import {
   updateIds,
 } from "./controllers/controller.js";
 import loadTaskForm from "./views/modals/taskForm.js";
+import { loadProjForm } from "./views/modals/projectForm.js";
 import loadTab from "./views/tab.js";
 
 const task = new Task(
@@ -27,8 +28,7 @@ const task2 = new Task(
 
 console.log(new Project("portfolio" , "youtube.com" , "subscribe to my channel"));
 
-linkTasksToProjects();
-displayTasks();
+window.onload = linkTasksToProjects() , displayTasks();
 
 /* updateIds(proj.tasks);
 linkTasksToProjects();
