@@ -1,3 +1,4 @@
+import { check } from "../controllers/tasksController";
 import create from "../others/domCreate";
 
 export default function newTaskCard(task) {
@@ -27,7 +28,12 @@ export default function newTaskCard(task) {
     "fa-regular",
     "fa-square-minus"
   );
+  cardDiv.dataset.index = task.id;
   checkbox.type = "checkbox";
+  checkbox.addEventListener("click", () => {
+    check(checkbox, task.id);
+  });
+  checkbox.checked = task.isDone;
 
   removIcon.appendChild(removeTask);
   editIcon.appendChild(editTask);

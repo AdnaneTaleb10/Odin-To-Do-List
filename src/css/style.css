@@ -155,18 +155,20 @@ nav div button:hover {
 
 #full-view {
   display: grid;
+  grid-row: 2 / -1;
+  grid-column: 3 / -1;
+  height: 100%;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, min-content);
+  grid-template-rows: min-content 1fr;
   border-right: 2px solid var(--borders-gray);
+  align-items: start;
+  row-gap: 1em;
 }
 
 #full-view > div#empty-view {
-  position: relative;
   color: var(--default-gray);
-  align-self: center;
-  /* margin-bottom: 5em; */
-  width: 100%;
   text-align: center;
+  margin-top: 45vh;
 }
 
 #logo {

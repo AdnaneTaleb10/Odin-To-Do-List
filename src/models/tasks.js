@@ -9,7 +9,7 @@ class Task {
     this.priority = priority.toLowerCase();
     this.dueDate = dueDate;
     this.notes = notes;
-    this.done = false;
+    this.isDone = false;
     this.id = null;
 
     tasks.push(this);
@@ -21,8 +21,8 @@ class Task {
     updateIds(tasks);
   }
 
-  isDone(status) {
-    this.done = status;
+  changeIsDone() {
+    this.isDone === true ? (this.isDone = false) : (this.isDone = true);
   }
 
   getAllTasks() {
@@ -37,6 +37,5 @@ class Task {
     this.notes = newNotes;
   }
 }
-
 
 export { Task, tasks };
