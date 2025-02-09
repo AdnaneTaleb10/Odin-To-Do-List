@@ -1,4 +1,6 @@
+import { displayTasksOfProjects } from "../controllers/tasksController";
 import create from "../others/domCreate";
+import expandProject from "../views/full-view/expandProject";
 
 export default function newProjectCard(project) {
   const cardDiv = create.createElementWithClass("div", "project-card");
@@ -22,6 +24,15 @@ export default function newProjectCard(project) {
     "fa-regular",
     "fa-square-minus"
   );
+
+  info.addEventListener('click' , () => {
+    expandProject(project.id);
+    displayTasksOfProjects(project)
+  })
+
+  stripe.addEventListener('click' , () => {
+    expandProject(project.id);
+  })
 
   removIcon.appendChild(removeTask);
   editIcon.appendChild(editTask);

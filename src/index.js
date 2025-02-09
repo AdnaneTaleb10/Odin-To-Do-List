@@ -13,14 +13,14 @@ import loadTab from "./views/tab.js";
 
 const task = new Task(
   "UM",
-  "Projeto",
+  "portfolio",
   "low",
   "01/01/2024",
   "Lorem ipsum notes"
 );
 const task2 = new Task(
   "DOIS",
-  "Projeto",
+  "portfolio",
   "low",
   "01/01/2024",
   "Lorem ipsum notes"

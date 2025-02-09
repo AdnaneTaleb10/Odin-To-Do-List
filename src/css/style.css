@@ -156,7 +156,7 @@ nav div button:hover {
 #full-view {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto-fit, min-content);
+  grid-template-rows: repeat(2, min-content);
   border-right: 2px solid var(--borders-gray);
 }
 
@@ -469,8 +469,8 @@ button[type="submit"]:hover {
 }
 
 .project-wrapper > .project-info {
-  display: flex;
-  flex-direction: column;
+/*   display: flex;
+  flex-direction: column; */
   margin-left: 0.8em;
 }
 
@@ -509,29 +509,40 @@ button[type="submit"]:hover {
 }
 
 /* FULL VIEW */
-
-#task-full {
-  display: grid;
-  grid-template-columns: 1fr /* 5em */;
-  grid-template-rows: repeat(auto-fit, min-content);
-}
-
-#task-full-info {
-  grid-row: 1 / 2;
-
+#full-project-div{
   display: flex;
-  align-items: center;
-  column-gap: 1em;
-
-  color: var(--black);
-  font-size: 1.3rem;
+  flex-direction: column;
 }
 
-#task-full-info > .fa-circle {
-  color: transparent;
-  border-radius: 100%;
-  margin-top: 4px;
-  font-size: 0.7rem;
+#full-project{
+  display: grid;
+  height: min-content;
+  grid-template-rows: repeat(3 , min-content);
+  grid-template-columns: 1fr; 
+  padding: 1em;
+}
+
+#full-project-info > h1{
+  color: var(--black);
+  font-size: 2rem;
+}
+
+#full-project-link{
+  color: var(--default-gray);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  text-decoration: none;
+}
+
+#full-project-link:hover{
+  text-decoration: underline;
+}
+
+#full-project-description{
+  white-space: pre-wrap;
+  padding-top: 1.5em;
+  font-size: 1.1rem;
+  color: var(--dark-gray);
 }
 
 .point {
@@ -542,6 +553,4 @@ button[type="submit"]:hover {
 .line {
   background-color: var(--borders-gray);
   height: 2px;
-  align-self: start;
-  grid-column: 1 / -1;
 }

@@ -21,12 +21,13 @@ export function loadTaskForm() {
 
 export function createTask() {
   let taskTitle = document.querySelector("#task-title").value;
-  let project = document.querySelector("#projects-dropdown").value;
+  let project = document.querySelector("#projects-dropdown");
+  let projectName = project.options[project.selectedIndex].text
   let priority = document.querySelector("#task-priority").value;
   let dueDate = document.querySelector("#due-date").value;
   let note = document.querySelector("#project-desrcription").value;
-
-  new Task(taskTitle, project, priority, dueDate, note);
+  
+  new Task(taskTitle, projectName, priority, dueDate, note);
 }
 
 loadTaskForm();
