@@ -1,13 +1,15 @@
 import { displayTasksOfProjects } from "../../controllers/tasksController";
 import { projects } from "../../models/projects";
 import create from "../../others/domCreate";
+import { updateCurrentExpanded } from "../modals/displayOptions";
 
-export default function expandProject(index) {
+export function expandProject(index) {
   const fullView = document.querySelector("#full-view");
 
   for (let i = 0; i < projects.length; i++) {
     if (i === parseInt(index)) {
       removeAllExpanded();
+      updateCurrentExpanded(i);
       const fullProject = create.createElementWithID("div", "full-project-div");
       const project = create.createElementWithID("div", "full-project");
       const projectInfo = create.createElementWithID(
@@ -31,11 +33,12 @@ export default function expandProject(index) {
       project.append(projectInfo, pre);
       fullProject.append(project, line);
       fullView.append(fullProject);
+      displayTasksOfProjects(projects[i])
     }
   }
 }
 
-function removeAllExpanded() {
+export function removeAllExpanded() {
   const fullView = document.querySelector("#full-view");
 
   do {

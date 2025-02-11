@@ -1,3 +1,4 @@
+let currentExpanded = null;
 const buttonToCreate = document.querySelector("#create");
 const baseModal = document.querySelector("#modal-option");
 const optionToCreate = document.querySelector("#create-option");
@@ -48,4 +49,12 @@ function closeModalBheavior(modal) {
   };
 }
 
-export { dispalyForm, unhide, hide };
+function updateCurrentExpanded(arg) {
+  currentExpanded = arg;
+}
+
+function getCurrentExpanded() {
+  return currentExpanded;
+}
+
+export { dispalyForm, unhide, hide , updateCurrentExpanded , getCurrentExpanded};

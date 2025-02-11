@@ -1,9 +1,13 @@
 import { tasks } from "../models/tasks";
 import newTaskCard from "../models/taskCard";
 import { createTask } from "../views/modals/taskForm";
-import { clearDisplayed, changeLabelTo } from "./general";
+import { clearDisplayed, changeLabelTo, linkTasksToProjects } from "./general";
 import { hide } from "../views/modals/displayOptions";
 import { projects } from "../models/projects";
+import {
+  expandProject,
+  removeAllExpanded,
+} from "../views/full-view/expandProject";
 
 const full = document.querySelector("#full-view");
 const minView = document.querySelector("#min-view");

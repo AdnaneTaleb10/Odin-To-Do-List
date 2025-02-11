@@ -1,6 +1,6 @@
-import { displayTasksOfProjects } from "../controllers/tasksController";
+import { linkTasksToProjects } from "../controllers/general";
 import create from "../others/domCreate";
-import expandProject from "../views/full-view/expandProject";
+import { expandProject } from "../views/full-view/expandProject";
 
 export default function newProjectCard(project) {
   const cardDiv = create.createElementWithClass("div", "project-card");
@@ -27,7 +27,6 @@ export default function newProjectCard(project) {
 
   info.addEventListener('click' , () => {
     expandProject(project.id);
-    displayTasksOfProjects(project)
   })
 
   stripe.addEventListener('click' , () => {

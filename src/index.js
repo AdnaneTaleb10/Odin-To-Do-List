@@ -27,6 +27,7 @@ const task2 = new Task(
 );
 
 console.log(new Project("portfolio" , "youtube.com" , "subscribe to my channel"));
+console.log(new Project("workshop" , "workshop.com" , "Join us in our workshop"));
 
 window.onload = linkTasksToProjects() , displayTasks();
 
