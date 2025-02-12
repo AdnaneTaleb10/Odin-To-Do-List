@@ -2,6 +2,7 @@ import { displayTasksOfProjects } from "../../controllers/tasksController";
 import { projects } from "../../models/projects";
 import create from "../../others/domCreate";
 import { updateCurrentExpanded } from "../modals/displayOptions";
+import { removeAllExpanded } from "./expandCommun";
 
 export function expandProject(index) {
   const fullView = document.querySelector("#full-view");
@@ -38,10 +39,4 @@ export function expandProject(index) {
   }
 }
 
-export function removeAllExpanded() {
-  const fullView = document.querySelector("#full-view");
 
-  do {
-    fullView.firstElementChild.remove();
-  } while (fullView.firstElementChild);
-}

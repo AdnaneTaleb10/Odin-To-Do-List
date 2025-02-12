@@ -1,5 +1,7 @@
 import { check } from "../controllers/tasksController";
 import create from "../others/domCreate";
+import { expandProject } from "../views/full-view/expandProject";
+import { expandTask } from "../views/full-view/expandTask";
 
 export default function newTaskCard(task) {
   const cardDiv = create.createElementWithClass("div", "task-card");
@@ -42,6 +44,16 @@ export default function newTaskCard(task) {
   content.append(info, dueDate);
   checkboxDiv.appendChild(checkbox);
   cardDiv.append(priority, checkboxDiv, content, actions);
+
+
+
+  content.addEventListener('click' , () => {
+    expandTask(task.id)
+  })
+
+  info.addEventListener('click' , () => {
+    expandTask(task.id)
+  })
 
   return cardDiv;
 }

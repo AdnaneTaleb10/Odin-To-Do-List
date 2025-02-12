@@ -346,8 +346,6 @@ button.remove-task:hover {
   cursor: pointer;
 }
 
-
-
 /* #modal-forms {
   visibility: hidden;
   height: 100dvh;
@@ -471,7 +469,7 @@ button[type="submit"]:hover {
 }
 
 .project-wrapper > .project-info {
-/*   display: flex;
+  /*   display: flex;
   flex-direction: column; */
   margin-left: 0.8em;
 }
@@ -511,36 +509,36 @@ button[type="submit"]:hover {
 }
 
 /* FULL VIEW */
-#full-project-div{
+#full-project-div {
   display: flex;
   flex-direction: column;
 }
 
-#full-project{
+#full-project {
   display: grid;
   height: min-content;
-  grid-template-rows: repeat(3 , min-content);
-  grid-template-columns: 1fr; 
+  grid-template-rows: repeat(3, min-content);
+  grid-template-columns: 1fr;
   padding: 1em;
 }
 
-#full-project-info > h1{
+#full-project-info > h1 {
   color: var(--black);
   font-size: 2rem;
 }
 
-#full-project-link{
+#full-project-link {
   color: var(--default-gray);
   font-size: 1.2rem;
   margin-top: 0.2rem;
   text-decoration: none;
 }
 
-#full-project-link:hover{
+#full-project-link:hover {
   text-decoration: underline;
 }
 
-#full-project-description{
+#full-project-description {
   white-space: pre-wrap;
   padding-top: 1.5em;
   font-size: 1.1rem;
@@ -555,4 +553,59 @@ button[type="submit"]:hover {
 .line {
   background-color: var(--borders-gray);
   height: 2px;
+}
+
+#full-task-div {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+#task-full {
+  display: grid;
+  grid-template-columns: 1fr, 5em;
+  grid-template-rows: repeat(3, min-content);
+  align-items: start;
+  padding: 1em;
+}
+
+#task-full-info {
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  color: var(--black);
+  font-size: 1.1rem;
+}
+
+#title-full {
+  font-size: 1.6rem;
+}
+
+#task-full-info > .fa-solid {
+  color: transparent;
+  border-radius: 100%;
+  font-size: 0.7em;
+}
+
+#task-full-status {
+  grid-row: 2 / 3;
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+  color: var(--default-gray);
+}
+
+#task-full-notes {
+  white-space: pre-wrap;
+  grid-column: 1 / 2;
+  color: var(--dark-gray);
+  padding-top: 1.5em;
+}
+
+#task-full-notes > p {
+  max-width: 60ch;
+  font-family: "Cascadia Code";
+  font-size: 1rem;
+  color: var(--dark-gray);
 }
