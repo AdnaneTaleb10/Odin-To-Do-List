@@ -35,13 +35,15 @@ export function displayTasksOfProjects(project) {
 }
 
 export function check(checkbox, index) {
-/*   const cardMinimized = document.querySelector(`[data-index = '${index}']`);
+  /*   const cardMinimized = document.querySelector(`[data-index = '${index}']`);
   const cardMaximized = document.querySelector(
     `[data-full-index = '${index}']`
   ); */
 
   const taskInMinView = document.querySelector(`[data-index='${index}']`);
-  const taskInProjectExpanded = document.querySelector(`[data-full-index='${index}']`);
+  const taskInProjectExpanded = document.querySelector(
+    `[data-full-index='${index}']`
+  );
   const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
 
   tasks[index].changeIsDone();
@@ -79,10 +81,10 @@ export function check(checkbox, index) {
   }
 
   // Only fullView
-  if(taskInMinView == null && taskInProjectExpanded !== null){
-    if(checkbox.checked === true){
+  if (taskInMinView == null && taskInProjectExpanded !== null) {
+    if (checkbox.checked === true) {
       taskInProjectExpanded.children[1].firstChild.checked = true;
-    }else{
+    } else {
       taskInProjectExpanded.children[1].firstChild.checked = false;
     }
   }

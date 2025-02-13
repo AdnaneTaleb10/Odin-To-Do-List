@@ -52,7 +52,7 @@ export function expandTask(index) {
       fullView.append(fullTask) */
 
       pre.append(notes);
-      status.append(taskProject , point1 , dueDate , point2 , checkbox);
+      status.append(taskProject, point1, dueDate, point2, checkbox);
       taskInfo.append(title, priority);
       task.append(taskInfo, status, pre);
       fullTask.append(task, line);

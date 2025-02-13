@@ -12,6 +12,12 @@ export function expandProject(index) {
       removeAllExpanded();
       updateCurrentExpanded(i);
       const fullProject = create.createElementWithID("div", "full-project-div");
+      const closeBtn = create.createElementWithID("div", "close");
+      const closeIcon = create.createElementWithClass(
+        "i",
+        "fa-solid",
+        "fa-xmark"
+      );
       const project = create.createElementWithID("div", "full-project");
       const projectInfo = create.createElementWithID(
         "div",
@@ -29,14 +35,20 @@ export function expandProject(index) {
       );
       const line = create.createElementWithClass("div", "line");
 
+      closeBtn.addEventListener('click' , () => {
+        removeAllExpanded()
+        const emptyView = create.createElementWithID("div" , "empty-view")
+        emptyView.textContent = "Open a task/project to see its full view";
+        fullView.append(emptyView)
+      })
+
+      closeBtn.append(closeIcon);
       pre.append(description);
       projectInfo.append(title, link);
-      project.append(projectInfo, pre);
+      project.append(closeBtn , projectInfo, pre);
       fullProject.append(project, line);
       fullView.append(fullProject);
-      displayTasksOfProjects(projects[i])
+      displayTasksOfProjects(projects[i]);
     }
   }
 }
-
-

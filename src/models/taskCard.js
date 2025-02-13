@@ -6,7 +6,10 @@ export default function newTaskCard(task) {
   const cardDiv = create.createElementWithClass("div", "task-card");
   const priority = create.createElementWithClass("div", "priority");
   priority.classList.add(task.priority);
-  const contentWrapper = create.createElementWithClass("div", "content-wrapper");
+  const contentWrapper = create.createElementWithClass(
+    "div",
+    "content-wrapper"
+  );
   const checkboxDiv = create.createElementWithClass("div", "checkbox-div");
   const checkbox = create.createElementWithClass("input", "checkbox");
   const info = create.createElementWithClass("div", "info"); // modified to suit the class of the task in the HTML
@@ -37,13 +40,17 @@ export default function newTaskCard(task) {
   });
   checkbox.checked = task.isDone;
 
-  contentWrapper.addEventListener('click' , () => {
-    expandTask(task.id)
-  })
+  contentWrapper.addEventListener("click", () => {
+    expandTask(task.id);
+  });
 
-  info.addEventListener('click' , () => {
-    expandTask(task.id)
-  })
+  info.addEventListener("click", () => {
+    expandTask(task.id);
+  });
+
+  priority.addEventListener("click", () => {
+    expandTask(task.id);
+  });
 
   removIcon.appendChild(removeTask);
   editIcon.appendChild(editTask);
@@ -59,7 +66,7 @@ export default function newTaskCard(task) {
 // Layout:
 
 //  div.task-card
-//  ^ div.priority.low 
+//  ^ div.priority.low
 //  ^ div.checkbox-div
 //      ^ input.checkbox
 //  ^ div.contentWrapper-contentWrapper
