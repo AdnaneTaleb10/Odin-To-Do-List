@@ -36,10 +36,7 @@ export function expandProject(index) {
       const line = create.createElementWithClass("div", "line");
 
       closeBtn.addEventListener('click' , () => {
-        removeAllExpanded()
-        const emptyView = create.createElementWithID("div" , "empty-view")
-        emptyView.textContent = "Open a task/project to see its full view";
-        fullView.append(emptyView)
+        removeAllExpanded(true);
       })
 
       closeBtn.append(closeIcon);

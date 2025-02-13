@@ -9,7 +9,7 @@ import {
   removeAllExpanded,
 } from "../views/full-view/expandProject";
 
-const full = document.querySelector("#full-view");
+const fullView = document.querySelector("#full-view");
 const minView = document.querySelector("#min-view");
 
 export function displayTasks() {
@@ -31,7 +31,7 @@ export function displayTasksOfProjects(project) {
     }
   }
 
-  full.appendChild(projectTasks);
+  fullView.appendChild(projectTasks);
 }
 
 export function check(checkbox, index) {
