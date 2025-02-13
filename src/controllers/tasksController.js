@@ -35,40 +35,55 @@ export function displayTasksOfProjects(project) {
 }
 
 export function check(checkbox, index) {
-  const cardMinimized = document.querySelector(`[data-index = '${index}']`);
+/*   const cardMinimized = document.querySelector(`[data-index = '${index}']`);
   const cardMaximized = document.querySelector(
     `[data-full-index = '${index}']`
-  );
+  ); */
+
+  const taskInMinView = document.querySelector(`[data-index='${index}']`);
+  const taskInProjectExpanded = document.querySelector(`[data-full-index='${index}']`);
+  const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
 
   tasks[index].changeIsDone();
 
   // Card exists in:
   // minView AND fullView
-  if (cardMaximized !== null && cardMinimized !== null) {
+  if (taskInMinView !== null && taskExpanded !== null) {
     if (checkbox.checked === true) {
-      cardMinimized.children[1].firstChild.checked = true;
-      cardMaximized.children[1].firstChild.checked = true;
+      taskInMinView.children[1].firstChild.checked = true;
+      taskExpanded.children[1].firstChild.checked = true;
     } else {
-      cardMinimized.children[1].firstChild.checked = false;
-      cardMaximized.children[1].firstChild.checked = false;
+      taskInMinView.children[1].firstChild.checked = false;
+      taskExpanded.children[1].firstChild.checked = false;
     }
   }
 
-  // Only fullView
-  if (cardMaximized !== null && cardMinimized === null) {
+  // minView AND fullView
+  if (taskInMinView !== null && taskInProjectExpanded !== null) {
     if (checkbox.checked === true) {
-      cardMaximized.children[1].firstChild.checked = true;
+      taskInMinView.children[1].firstChild.checked = true;
+      taskInProjectExpanded.children[1].firstChild.checked = true;
     } else {
-      cardMinimized.children[1].firstChild.checked = false;
+      taskInMinView.children[1].firstChild.checked = false;
+      taskInProjectExpanded.children[1].firstChild.checked = false;
     }
   }
 
   // Only minView
-  if (cardMaximized === null && cardMinimized !== null) {
+  if (taskInMinView !== null && taskInProjectExpanded === null) {
     if (checkbox.checked === true) {
-      cardMinimized.children[1].firstChild.checked = true;
+      taskInMinView.children[1].firstChild.checked = true;
     } else {
-      cardMinimized.children[1].firstChild.checked = false;
+      taskInMinView.children[1].firstChild.checked = false;
+    }
+  }
+
+  // Only fullView
+  if(taskInMinView == null && taskInProjectExpanded !== null){
+    if(checkbox.checked === true){
+      taskInProjectExpanded.children[1].firstChild.checked = true;
+    }else{
+      taskInProjectExpanded.children[1].firstChild.checked = false;
     }
   }
 }

@@ -1,13 +1,12 @@
 import { check } from "../controllers/tasksController";
 import create from "../others/domCreate";
-import { expandProject } from "../views/full-view/expandProject";
 import { expandTask } from "../views/full-view/expandTask";
 
 export default function newTaskCard(task) {
   const cardDiv = create.createElementWithClass("div", "task-card");
   const priority = create.createElementWithClass("div", "priority");
   priority.classList.add(task.priority);
-  const content = create.createElementWithClass("div", "content-wrapper");
+  const contentWrapper = create.createElementWithClass("div", "content-wrapper");
   const checkboxDiv = create.createElementWithClass("div", "checkbox-div");
   const checkbox = create.createElementWithClass("input", "checkbox");
   const info = create.createElementWithClass("div", "info"); // modified to suit the class of the task in the HTML
@@ -32,22 +31,13 @@ export default function newTaskCard(task) {
   );
   cardDiv.dataset.index = task.id;
   checkbox.type = "checkbox";
+  checkbox.checked = task.isDone;
   checkbox.addEventListener("click", () => {
     check(checkbox, task.id);
   });
   checkbox.checked = task.isDone;
 
-  removIcon.appendChild(removeTask);
-  editIcon.appendChild(editTask);
-  actions.append(removIcon, editIcon);
-  info.append(title, project);
-  content.append(info, dueDate);
-  checkboxDiv.appendChild(checkbox);
-  cardDiv.append(priority, checkboxDiv, content, actions);
-
-
-
-  content.addEventListener('click' , () => {
+  contentWrapper.addEventListener('click' , () => {
     expandTask(task.id)
   })
 
@@ -55,15 +45,24 @@ export default function newTaskCard(task) {
     expandTask(task.id)
   })
 
+  removIcon.appendChild(removeTask);
+  editIcon.appendChild(editTask);
+  actions.append(removIcon, editIcon);
+  info.append(title, project);
+  contentWrapper.append(info, dueDate);
+  checkboxDiv.appendChild(checkbox);
+  cardDiv.append(priority, checkboxDiv, contentWrapper, actions);
+
   return cardDiv;
 }
 
 // Layout:
+
 //  div.task-card
-//  ^ div.priority.low
+//  ^ div.priority.low 
 //  ^ div.checkbox-div
 //      ^ input.checkbox
-//  ^ div.content-content
+//  ^ div.contentWrapper-contentWrapper
 //      ^ div.info
 //          ^ p.task-title
 //          ^ p.task-project
@@ -72,4 +71,3 @@ export default function newTaskCard(task) {
 //      ^ button.edit-task
 //          ^ i.fa-regular.fa-pen-to-square
 //      ^ button.remove-task
-//          ^ i.fa-regular.fa-square-minus
