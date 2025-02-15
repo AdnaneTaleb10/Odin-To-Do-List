@@ -279,15 +279,19 @@ div.task-actions {
 }
 
 button.edit-task,
-button.remove-task {
+button.remove-task,
+button.remove-project,
+button.edit-project {
   background-color: transparent;
   border: none;
-  color: var(--dark-gray);
+  padding: 4px 8px;
   border-radius: 5px;
 }
 
 button.edit-task:hover,
-button.remove-task:hover {
+button.remove-task:hover,
+button.remove-project:hover,
+button.edit-project:hover{
   cursor: pointer;
   background-color: var(--light-gray);
 }

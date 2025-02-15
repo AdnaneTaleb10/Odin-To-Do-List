@@ -165,6 +165,44 @@
             <button type="submit" id="add-project">Add Project</button>
           </div>
         </form>
+
+        <!-- EDIT PROJECT FORM -->
+        <form action="" id="edit-project-form" class="hide">
+          <h1>Edit project</h1>
+          <div>
+            <label for="edit-project-title">Title*</label>
+            <input
+              type="text"
+              name="title"
+              id="edit-project-title"
+              placeholder="Portfolio"
+              required
+            />
+          </div>
+          <div>
+            <label for="edit-project-link">Link</label>
+            <input
+              type="text"
+              name="link"
+              id="edit-project-link"
+              placeholder="myportfolio.com"
+            />
+          </div>
+          <div>
+            <label for="edit-project-description">Description</label>
+            <textarea
+              name="project-description"
+              id="edit-project-description"
+              rows="5"
+              cols="5"
+              placeholder="Website to showcase my personal projects"
+              maxlength="300"
+            ></textarea>
+          </div>
+          <div>
+            <button type="submit" id="edit-project">Save changes</button>
+          </div>
+        </form>
       </div>
     </main>
   </body>

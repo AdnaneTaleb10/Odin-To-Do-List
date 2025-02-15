@@ -1,7 +1,7 @@
 import { tasks } from "../models/tasks";
 import { projects } from "../models/projects";
-import { clearDisplayed , clearProjectTasks } from "./general";
-import { displayTasks , displayTasksOfProjects } from "./tasksController";
+import { clearDisplayed, clearProjectTasks } from "./general";
+import { displayTasks, displayTasksOfProjects } from "./tasksController";
 import { removeAllExpanded } from "../views/full-view/expandCommun";
 
 function checkDinamically(checkbox, index) {
@@ -81,7 +81,7 @@ function removeTaskDinamically(index) {
   }
 
   if (taskExpanded !== null) {
-    removeAllExpanded();
+    removeAllExpanded(true);
   }
 }
 

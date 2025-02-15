@@ -3,11 +3,10 @@ const buttonToCreate = document.querySelector("#create");
 const baseModal = document.querySelector("#modal-option");
 const optionToCreate = document.querySelector("#create-option");
 const createTaskBtn = document.querySelector("#create-task");
-const createProjkBtn = document.querySelector("#create-project");
-
+const createProjBtn = document.querySelector("#create-project");
 
 buttonToCreate.addEventListener("click", () => {
-  unhide(baseModal, optionToCreate, createTaskBtn, createProjkBtn);
+  unhide(baseModal, optionToCreate, createTaskBtn, createProjBtn);
   closeModalBheavior(baseModal);
 });
 
@@ -27,7 +26,7 @@ function unhide(...elements) {
 
 function dispalyForm(form) {
   form.reset();
-  hide(optionToCreate, createTaskBtn, createProjkBtn);
+  hide(optionToCreate, createTaskBtn, createProjBtn);
   unhide(form);
   closeModalBheavior(baseModal);
 }
@@ -35,16 +34,18 @@ function dispalyForm(form) {
 function closeModalBheavior(modal) {
   const taskFrom = document.querySelector("#task-form");
   const projFrom = document.querySelector("#project-form");
+  const editProjForm = document.querySelector("#edit-project-form");
 
   window.onclick = function (event) {
     if (event.target === modal) {
       hide(
         optionToCreate,
         createTaskBtn,
-        createProjkBtn,
+        createProjBtn,
         modal,
         taskFrom,
-        projFrom
+        projFrom,
+        editProjForm
       );
     }
   };
@@ -58,4 +59,4 @@ function getCurrentExpanded() {
   return currentExpanded;
 }
 
-export { dispalyForm, unhide, hide , updateCurrentExpanded , getCurrentExpanded};
+export { dispalyForm, unhide, hide, updateCurrentExpanded, getCurrentExpanded };
