@@ -10,7 +10,6 @@ export default function newProjectCard(project) {
   const title = create.createElementWithClass("p", "project-title");
   title.textContent = project.title;
   const link = create.createTextElement("a", project.link);
-  link.href = project.link;
   const actions = create.createElementWithClass("div", "task-actions");
   const editIcon = create.createElementWithClass("button", "edit-task");
   const editTask = create.createElementWithClass(
@@ -24,6 +23,9 @@ export default function newProjectCard(project) {
     "fa-regular",
     "fa-square-minus"
   );
+
+  link.href = project.link;
+  cardDiv.dataset.projId = project.id;
 
   info.addEventListener('click' , () => {
     expandProject(project.id);
