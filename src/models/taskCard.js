@@ -1,4 +1,4 @@
-import { check } from "../controllers/tasksController";
+import { check, removeTask } from "../controllers/tasksController";
 import create from "../others/domCreate";
 import { expandTask } from "../views/full-view/expandTask";
 
@@ -20,14 +20,14 @@ export default function newTaskCard(task) {
   const dueDate = create.createElementWithClass("p", "due-date");
   dueDate.textContent = task.dueDate;
   const actions = create.createElementWithClass("div", "task-actions");
-  const editIcon = create.createElementWithClass("button", "edit-task");
-  const editTask = create.createElementWithClass(
+  const editTaskBtn = create.createElementWithClass("button", "edit-task");
+  const editIcon = create.createElementWithClass(
     "i",
     "fa-regular",
     "fa-pen-to-square"
   );
-  const removIcon = create.createElementWithClass("button", "remove-task");
-  const removeTask = create.createElementWithClass(
+  const removeTaskBtn = create.createElementWithClass("button", "remove-task");
+  const remvoeIcon = create.createElementWithClass(
     "i",
     "fa-regular",
     "fa-square-minus"
@@ -52,9 +52,13 @@ export default function newTaskCard(task) {
     expandTask(task.id);
   });
 
-  removIcon.appendChild(removeTask);
-  editIcon.appendChild(editTask);
-  actions.append(removIcon, editIcon);
+  removeTaskBtn.addEventListener('click' , () => {
+    removeTask(task.id);
+  })
+
+  removeTaskBtn.appendChild(remvoeIcon);
+  editTaskBtn.appendChild(editIcon);
+  actions.append(removeTaskBtn, editTaskBtn);
   info.append(title, project);
   contentWrapper.append(info, dueDate);
   checkboxDiv.appendChild(checkbox);

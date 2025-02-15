@@ -42,7 +42,8 @@ export function expandTask(index) {
       const pre = create.createElementWithID("pre", "task-full-notes");
       const notes = create.createTextElement("p", tasks[i].notes);
       const line = create.createElementWithClass("div", "line");
-      fullTask.dataset.expanded = index;
+      task.dataset.expanded = index;
+
       checkbox.addEventListener("click", () => {
         check(checkbox, index);
       });
@@ -55,6 +56,14 @@ export function expandTask(index) {
         checkbox.checked = true;
       }
 
+      if (taskProject.textContent !== "") {
+        status.append(taskProject, point1);
+      }
+
+      if (dueDate.textContent !== "") {
+        status.append(dueDate, point2);
+      }
+
       /*       taskInfo.append(title , priority)
       status.append(taskProject , point1 , dueDate , point2, checkbox);
       pre.append(notes);
@@ -64,7 +73,7 @@ export function expandTask(index) {
 
       closeBtn.append(closeIcon);
       pre.append(notes);
-      status.append(taskProject, point1, dueDate, point2, checkbox);
+      status.append(checkbox);
       taskInfo.append(title, priority);
       task.append(closeBtn, taskInfo, status, pre);
       fullTask.append(task, line);

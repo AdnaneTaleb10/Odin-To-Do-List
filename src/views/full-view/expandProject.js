@@ -35,14 +35,15 @@ export function expandProject(index) {
       );
       const line = create.createElementWithClass("div", "line");
 
-      closeBtn.addEventListener('click' , () => {
+      closeBtn.addEventListener("click", () => {
         removeAllExpanded(true);
-      })
+      });
+      project.dataset.projIndex = i;
 
       closeBtn.append(closeIcon);
       pre.append(description);
       projectInfo.append(title, link);
-      project.append(closeBtn , projectInfo, pre);
+      project.append(closeBtn, projectInfo, pre);
       fullProject.append(project, line);
       fullView.append(fullProject);
       displayTasksOfProjects(projects[i]);

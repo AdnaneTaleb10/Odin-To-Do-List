@@ -2,10 +2,7 @@ import "./css/style.css";
 import setLogo from "./modules/logo";
 import { Task, tasks } from "./models/tasks.js";
 import { Project } from "./models/projects.js";
-import {
-  linkTasksToProjects,
-  updateIds,
-} from "./controllers/general.js";
+import { linkTasksToProjects, updateIds } from "./controllers/general.js";
 import { displayTasks } from "./controllers/tasksController.js";
 import loadTaskForm from "./views/modals/taskForm.js";
 import { loadProjForm } from "./views/modals/projectForm.js";
@@ -20,16 +17,23 @@ const task = new Task(
 );
 const task2 = new Task(
   "DOIS",
-  "portfolio",
-  "low",
+  "Projeto",
+  "medium",
+  "01/01/2024",
+  "Lorem ipsum notes"
+);
+const task3 = new Task(
+  "TRES",
+  "Projeto",
+  "high",
   "01/01/2024",
   "Lorem ipsum notes"
 );
 
-console.log(new Project("portfolio" , "youtube.com" , "subscribe to my channel"));
-console.log(new Project("workshop" , "workshop.com" , "Join us in our workshop"));
+const proj = new Project('Projeto', 'linkprojeto.com', 'Descrição do projeto');
+const proj2 = new Project('Projeto DOIS', 'linkprojeto.com', 'Descrição do projeto');
 
-window.onload = linkTasksToProjects() , displayTasks();
+(window.onload = linkTasksToProjects()), displayTasks();
 
 /* updateIds(proj.tasks);
 linkTasksToProjects();

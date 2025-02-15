@@ -1,4 +1,5 @@
 import { updateIds } from "../controllers/general";
+import { projects } from "./projects";
 
 let tasks = [];
 
@@ -11,6 +12,7 @@ class Task {
     this.notes = notes;
     this.isDone = false;
     this.id = null;
+    /* this.projId = null; */
 
     tasks.push(this);
     updateIds(tasks);
@@ -18,6 +20,7 @@ class Task {
 
   delete() {
     tasks.splice(this.id, 1);
+    console.log(projects);
     updateIds(tasks);
   }
 
