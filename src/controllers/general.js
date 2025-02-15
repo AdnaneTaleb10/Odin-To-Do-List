@@ -38,4 +38,11 @@ function changeLabelTo(what) {
   document.querySelector("#current-tab").textContent = what;
 }
 
-export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelTo };
+
+function clearProjectTasks() {
+  const fullView = document.querySelector("#full-view");
+  fullView.lastChild.remove();
+}
+
+
+export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelTo , clearProjectTasks};

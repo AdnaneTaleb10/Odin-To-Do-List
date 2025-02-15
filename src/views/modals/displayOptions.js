@@ -5,6 +5,7 @@ const optionToCreate = document.querySelector("#create-option");
 const createTaskBtn = document.querySelector("#create-task");
 const createProjkBtn = document.querySelector("#create-project");
 
+
 buttonToCreate.addEventListener("click", () => {
   unhide(baseModal, optionToCreate, createTaskBtn, createProjkBtn);
   closeModalBheavior(baseModal);

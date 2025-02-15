@@ -385,6 +385,10 @@ form {
   visibility: visible;
 }
 
+.invalid {
+  border: 2px solid var(--red);
+}
+
 form > h1 {
   color: var(--dark-gray);
   text-align: center;
@@ -531,7 +535,7 @@ button[type="submit"]:hover {
   overflow-x: hidden;
 }
 
-#close{
+#close {
   position: absolute;
   right: 1em;
   top: 0.8em;

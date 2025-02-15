@@ -13,9 +13,13 @@ emptyViewText.textContent = "Open a task/project to see its full view";
 export function removeAllExpanded(displayEmptyText = false) {
   const fullView = document.querySelector("#full-view");
 
-  do {
+    do {
     fullView.firstElementChild.remove();
   } while (fullView.firstElementChild);
+
+/*   while (fullView.firstElementChild) {
+    fullView.firstElementChild.remove();
+  } */
 
   if (displayEmptyText) {
     fullView.append(emptyViewText);

@@ -1,4 +1,4 @@
-import { check } from "../../controllers/tasksController";
+import { checkDinamically } from "../../controllers/taskActions";
 import { tasks } from "../../models/tasks";
 import create from "../../others/domCreate";
 import { updateCurrentExpanded } from "../modals/displayOptions";
@@ -45,7 +45,7 @@ export function expandTask(index) {
       task.dataset.expanded = index;
 
       checkbox.addEventListener("click", () => {
-        check(checkbox, index);
+        checkDinamically(checkbox, index);
       });
 
       closeBtn.addEventListener("click", () => {
