@@ -32,6 +32,10 @@ class Task {
     return tasks;
   }
 
+  changeProject(newTitle) {
+    this.project = newTitle;
+  }
+
   edit(newTitle, newProject, newDueDate, newPriority, newNotes) {
     newTitle !== "" ? (this.title = newTitle) : this.title;
     this.project = newProject;

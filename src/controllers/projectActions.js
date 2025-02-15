@@ -3,7 +3,7 @@ import { removeAllExpanded } from "../views/full-view/expandCommun";
 import { clearDisplayed } from "./general";
 import { displayProjects } from "./projectsController";
 
-function removeTaskDinamically(index) {
+function removeProjectDinamically(index) {
   const projInMinView = document.querySelector(`[data-proj-id = "${index}"]`);
   const projInFullView = document.querySelector(
     `[data-proj-index = "${index}"]`
@@ -20,4 +20,4 @@ function removeTaskDinamically(index) {
   }
 }
 
-export { removeTaskDinamically };
+export { removeProjectDinamically };

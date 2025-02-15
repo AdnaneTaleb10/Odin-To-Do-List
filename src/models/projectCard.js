@@ -1,6 +1,8 @@
 import { linkTasksToProjects } from "../controllers/general";
+import { removeProjectDinamically } from "../controllers/projectActions";
 import create from "../others/domCreate";
 import { expandProject } from "../views/full-view/expandProject";
+import { dispalyForm } from "../views/modals/displayOptions";
 
 export default function newProjectCard(project) {
   const cardDiv = create.createElementWithClass("div", "project-card");
@@ -11,14 +13,17 @@ export default function newProjectCard(project) {
   title.textContent = project.title;
   const link = create.createTextElement("a", project.link);
   const actions = create.createElementWithClass("div", "task-actions");
-  const editIcon = create.createElementWithClass("button", "edit-task");
-  const editTask = create.createElementWithClass(
+  const editProjectBtn = create.createElementWithClass("button", "edit-task");
+  const editIcon = create.createElementWithClass(
     "i",
     "fa-regular",
     "fa-pen-to-square"
   );
-  const removIcon = create.createElementWithClass("button", "remove-task");
-  const removeTask = create.createElementWithClass(
+  const removeProjectBtn = create.createElementWithClass(
+    "button",
+    "remove-project"
+  );
+  const removeIcon = create.createElementWithClass(
     "i",
     "fa-regular",
     "fa-square-minus"
@@ -27,17 +32,25 @@ export default function newProjectCard(project) {
   link.href = project.link;
   cardDiv.dataset.projId = project.id;
 
-  info.addEventListener('click' , () => {
+  info.addEventListener("click", () => {
     expandProject(project.id);
-  })
+  });
 
-  stripe.addEventListener('click' , () => {
+  stripe.addEventListener("click", () => {
     expandProject(project.id);
-  })
+  });
 
-  removIcon.appendChild(removeTask);
-  editIcon.appendChild(editTask);
-  actions.append(removIcon, editIcon);
+  removeProjectBtn.addEventListener("click", () => {
+    removeProjectDinamically(project.id);
+  });
+
+  editProjectBtn.addEventListener("click", () => {
+    displayProjectForm(project.id);
+  });
+
+  removeProjectBtn.appendChild(removeIcon);
+  editProjectBtn.appendChild(editIcon);
+  actions.append(removeProjectBtn, editIcon);
   info.append(title, link);
   content.append(info, actions);
   cardDiv.append(stripe, content);
