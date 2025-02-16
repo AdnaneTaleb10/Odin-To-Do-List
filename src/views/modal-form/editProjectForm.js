@@ -24,6 +24,12 @@ export function dispalyProjForm(i) {
   projToEditID = i;
   unhide(baseModal);
   dispalyForm(editProjForm);
+  const title = document.querySelector("#edit-project-title");
+  const link = document.querySelector("#edit-project-link");
+  const description = document.querySelector("#edit-project-description");
+  title.value = projects[i].title;
+  link.value = projects[i].link;
+  description.value = projects[i].description;
 }
 
 function saveChanges(projID) {
@@ -32,7 +38,7 @@ function saveChanges(projID) {
   const description = document.querySelector("#edit-project-description").value;
   let filter = projects.filter((proj) => proj.title === title.value);
 
-  if (title.value !== "" && !filter[0]) {
+  if (title.value !== "" && (!filter[0] || title.value === projects[projID].title)) {
     updateTaskProject(title.value);
     projects[projID].edit(title.value, link, description);
     clearDisplayed();
@@ -52,10 +58,10 @@ function updateTaskProject(lastTitle, newTitle) {
   }
 }
 
-function updateIfExpanded(id) {
-  const expanded = document.querySelector(`[data-proj-index = '${id}']`);
+function updateIfExpanded(dataIndex) {
+  const expanded = document.querySelector(`[data-proj-index = '${dataIndex}']`);
   if (expanded !== null) {
-    expandProject(id);
+    expandProject(dataIndex);
   }
 }
 
