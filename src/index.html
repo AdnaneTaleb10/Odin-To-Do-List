@@ -63,7 +63,7 @@
       </div>
 
       <div id="full-view">
-        <div id="empty-view">Open a task/project to see its full view</div>
+        <div id="empty-view">Click in a task or project to expand it</div>
       </div>
 
       <div id="modal-option" class="hide">
@@ -166,9 +166,62 @@
           </div>
         </form>
 
+        <!-- EDIT TASK FORM -->
+        <form action="" id="edit-task-form" class="hide">
+          <h1>Edit Task</h1>
+          <div>
+            <label for="edit-task-title">Title*</label>
+            <input
+              type="text"
+              name="title"
+              id="edit-task-title"
+              placeholder="Walk the dog"
+              required
+            />
+          </div>
+          <div>
+            <label for="edit-projects-dropdown">Project</label>
+            <select name="projects" id="edit-projects-dropdown">
+              <option value="">None</option>
+            </select>
+          </div>
+          <div>
+            <label for="edit-task-priority">Priority</label>
+            <select name="priority" id="edit-task-priority">
+              <option value="low" selected="select">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div>
+            <label for="edit-due-date">Due date</label>
+            <input
+              type="text"
+              name="due-date"
+              id="edit-due-date"
+              placeholder="dd/mm/yyyy"
+              maxlength="10"
+              onkeydown="this.value=this.value.replace(/^(\d\d)(\d)$/g,'$1/$2').replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2').replace(/[^\d\/]/g,'')"
+            />
+          </div>
+          <div>
+            <label for="edit-task-notes">Notes</label>
+            <textarea
+              name="task-notes"
+              id="edit-task-notes"
+              rows="5"
+              cols="5"
+              placeholder="Do this, and that, and this, and that..."
+            ></textarea>
+          </div>
+          <div>
+            <button type="submit" id="edit-task">Save changes</button>
+          </div>
+        </form>
+
         <!-- EDIT PROJECT FORM -->
         <form action="" id="edit-project-form" class="hide">
-          <h1>Edit project</h1>
+          <h1>Edit Project</h1>
           <div>
             <label for="edit-project-title">Title*</label>
             <input
