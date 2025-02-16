@@ -1,9 +1,7 @@
-import { createProj } from "../views/modals/projectForm";
+import { createProj } from "../views/modal-form/projectForm";
 import { clearDisplayed, changeLabelTo } from "./general";
-import { hide } from "../views/modals/displayOptions";
+import { hide } from "../views/modal-form/displayOptions";
 import newProjectCard from "../models/projectCard";
-import newTaskCard from "../models/taskCard";
-import { tasks } from "../models/tasks";
 import { projects } from "../models/projects";
 
 const minView = document.querySelector("#min-view");

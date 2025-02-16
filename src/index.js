@@ -4,10 +4,10 @@ import { Task, tasks } from "./models/tasks.js";
 import { Project } from "./models/projects.js";
 import { linkTasksToProjects, updateIds } from "./controllers/general.js";
 import { displayTasks } from "./controllers/tasksController.js";
-import loadTaskForm from "./views/modals/taskForm.js";
-import { loadProjForm } from "./views/modals/projectForm.js";
+import { loadTaskForm } from "./views/modal-form/taskForm.js";
+import { loadProjForm } from "./views/modal-form/projectForm.js";
 import loadTab from "./views/tab.js";
-import { loadEditForm } from "./views/modals/editProjectForm.js";
+import { loadEditForm } from "./views/modal-form/editProjectForm.js";
 
 const task = new Task(
   "UM",

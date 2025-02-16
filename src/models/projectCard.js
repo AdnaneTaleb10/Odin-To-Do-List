@@ -2,8 +2,8 @@ import { linkTasksToProjects } from "../controllers/general";
 import { removeProjectDinamically } from "../controllers/projectActions";
 import create from "../others/domCreate";
 import { expandProject } from "../views/full-view/expandProject";
-import { dispalyForm } from "../views/modals/displayOptions";
-import { dispalyProjForm } from "../views/modals/editProjectForm";
+import { dispalyForm } from "../views/modal-form/displayOptions";
+import { dispalyProjForm } from "../views/modal-form/editProjectForm";
 
 export default function newProjectCard(project) {
   const cardDiv = create.createElementWithClass("div", "project-card");
@@ -14,7 +14,10 @@ export default function newProjectCard(project) {
   title.textContent = project.title;
   const link = create.createTextElement("a", project.link);
   const actions = create.createElementWithClass("div", "project-actions");
-  const editProjectBtn = create.createElementWithClass("button", "edit-project");
+  const editProjectBtn = create.createElementWithClass(
+    "button",
+    "edit-project"
+  );
   const editIcon = create.createElementWithClass(
     "i",
     "fa-regular",
@@ -46,11 +49,11 @@ export default function newProjectCard(project) {
   });
 
   editProjectBtn.addEventListener("click", () => {
-    dispalyProjForm(project.id)
+    dispalyProjForm(project.id);
   });
 
   removeProjectBtn.appendChild(removeIcon);
-  editProjectBtn.append(editIcon)
+  editProjectBtn.append(editIcon);
   actions.append(editProjectBtn, removeProjectBtn);
   info.append(title, link);
   content.append(info, actions);

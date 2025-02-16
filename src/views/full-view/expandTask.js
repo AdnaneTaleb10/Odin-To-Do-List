@@ -1,7 +1,7 @@
 import { checkDinamically } from "../../controllers/taskActions";
 import { tasks } from "../../models/tasks";
 import create from "../../others/domCreate";
-import { updateCurrentExpanded } from "../modals/displayOptions";
+import { updateCurrentExpanded } from "../modal-form/displayOptions";
 import { removeAllExpanded } from "./expandCommun";
 
 export function expandTask(index) {

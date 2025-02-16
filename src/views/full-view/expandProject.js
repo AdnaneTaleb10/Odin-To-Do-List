@@ -1,7 +1,7 @@
 import { displayTasksOfProjects } from "../../controllers/tasksController";
 import { projects } from "../../models/projects";
 import create from "../../others/domCreate";
-import { updateCurrentExpanded } from "../modals/displayOptions";
+import { updateCurrentExpanded } from "../modal-form/displayOptions";
 import { removeAllExpanded } from "./expandCommun";
 
 export function expandProject(index) {
