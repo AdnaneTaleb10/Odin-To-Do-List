@@ -45,4 +45,8 @@ class Task {
   }
 }
 
-export { Task, tasks };
+function filterTasks(newArr){
+  tasks = newArr;
+}
+
+export { Task, tasks, filterTasks };

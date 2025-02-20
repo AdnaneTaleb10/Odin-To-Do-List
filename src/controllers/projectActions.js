@@ -1,6 +1,7 @@
 import { projects } from "../models/projects";
+import { filterTasks, tasks } from "../models/tasks";
 import { removeAllExpanded } from "../views/full-view/expandCommun";
-import { clearDisplayed } from "./general";
+import { clearDisplayed, updateIds } from "./general";
 import { displayProjects } from "./projectsController";
 
 function removeProjectDinamically(index) {
@@ -8,7 +9,12 @@ function removeProjectDinamically(index) {
   const projInFullView = document.querySelector(
     `[data-proj-index = "${index}"]`
   );
-  projects[index].delete()
+  
+  let filter = tasks.filter((task) => task.project !== projects[index].title);
+  filterTasks(filter);
+  updateIds(tasks)
+
+  projects[index].delete();
 
   if (projInMinView !== null) {
     clearDisplayed();
