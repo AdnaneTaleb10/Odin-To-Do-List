@@ -52,8 +52,8 @@ function saveChanges(indexTaskToEdit) {
 }
 
 export function displayEditTaskForm(i) {
-  loadAvailableProjects();
   indexTaskToEdit = i;
+  loadAvailableProjects();
   unhide(baseModal);
   dispalyForm(editTaskForm);
   const title = document.querySelector("#edit-task-title");

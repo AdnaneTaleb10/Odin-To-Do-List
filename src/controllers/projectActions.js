@@ -1,7 +1,7 @@
 import { projects } from "../models/projects";
 import { filterTasks, tasks } from "../models/tasks";
 import { removeAllExpanded } from "../views/full-view/expandCommun";
-import { clearDisplayed, updateIds } from "./general";
+import { clearDisplayed } from "./general";
 import { displayProjects } from "./projectsController";
 
 function removeProjectDinamically(index) {
@@ -9,11 +9,20 @@ function removeProjectDinamically(index) {
   const projInFullView = document.querySelector(
     `[data-proj-index = "${index}"]`
   );
-  
-  let filter = tasks.filter((task) => task.project !== projects[index].title);
-  filterTasks(filter);
-  updateIds(tasks)
 
+  let taskExpanded = document.querySelector("#task-full");
+  let filter = tasks.filter((task) => task.project !== projects[index].title);
+  let removed = tasks.filter((task) => task.project !== projects[index].title);
+
+  for (let tsk of removed) {
+    if (taskExpanded !== null) {
+      if (tsk.id === Number(taskExpanded.dataset.expanded)) {
+        removeAllExpanded(true);
+      }
+    }
+  }
+
+  filterTasks(filter);
   projects[index].delete();
 
   if (projInMinView !== null) {

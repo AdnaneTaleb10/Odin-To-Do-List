@@ -47,6 +47,7 @@ class Task {
 
 function filterTasks(newArr){
   tasks = newArr;
+  updateIds(tasks);
 }
 
 export { Task, tasks, filterTasks };
