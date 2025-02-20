@@ -3,10 +3,9 @@ import { displayProjects } from "../../controllers/projectsController";
 import { projects } from "../../models/projects";
 import { Task, tasks } from "../../models/tasks";
 import { expandProject } from "../full-view/expandProject";
-import { dispalyForm, unhide } from "./displayOptions";
+import { dispalyForm, unhide, baseModal } from "./displayOptions";
 import { hide } from "./displayOptions";
 
-const baseModal = document.querySelector("#modal-option");
 const editProjForm = document.querySelector("#edit-project-form");
 const editProjBtn = document.querySelector("#edit-project");
 
@@ -38,7 +37,10 @@ function saveChanges(projID) {
   const description = document.querySelector("#edit-project-description").value;
   let filter = projects.filter((proj) => proj.title === title.value);
 
-  if (title.value !== "" && (!filter[0] || title.value === projects[projID].title)) {
+  if (
+    title.value !== "" &&
+    (!filter[0] || title.value === projects[projID].title)
+  ) {
     updateTaskProject(title.value);
     projects[projID].edit(title.value, link, description);
     clearDisplayed();

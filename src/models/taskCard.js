@@ -4,6 +4,7 @@ import {
 } from "../controllers/taskActions";
 import create from "../others/domCreate";
 import { expandTask } from "../views/full-view/expandTask";
+import { displayEditTaskForm } from "../views/modal-form/editTaskForm";
 
 export default function newTaskCard(task) {
   const cardDiv = create.createElementWithClass("div", "task-card");
@@ -58,6 +59,10 @@ export default function newTaskCard(task) {
   removeTaskBtn.addEventListener("click", () => {
     removeTaskDinamically(task.id);
   });
+
+  editTaskBtn.addEventListener("click" , () => {
+      displayEditTaskForm(task.id)
+  })
 
   removeTaskBtn.appendChild(remvoeIcon);
   editTaskBtn.appendChild(editIcon);

@@ -35,6 +35,7 @@ function closeModalBheavior(modal) {
   const taskFrom = document.querySelector("#task-form");
   const projFrom = document.querySelector("#project-form");
   const editProjForm = document.querySelector("#edit-project-form");
+  const editTaskForm = document.querySelector("#edit-task-form");
 
   window.onclick = function (event) {
     if (event.target === modal) {
@@ -45,7 +46,8 @@ function closeModalBheavior(modal) {
         modal,
         taskFrom,
         projFrom,
-        editProjForm
+        editProjForm,
+        editTaskForm
       );
     }
   };
@@ -59,4 +61,11 @@ function getCurrentExpanded() {
   return currentExpanded;
 }
 
-export { dispalyForm, unhide, hide, updateCurrentExpanded, getCurrentExpanded };
+export {
+  baseModal,
+  dispalyForm,
+  unhide,
+  hide,
+  updateCurrentExpanded,
+  getCurrentExpanded,
+};

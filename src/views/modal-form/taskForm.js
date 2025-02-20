@@ -36,7 +36,7 @@ export function createTask() {
   return task;
 }
 
-function addToProject() {
+export function addToProject() {
   for (let proj of projects) {
     for (let task of tasks) {
       if (task.project === proj.title) {
@@ -46,14 +46,25 @@ function addToProject() {
   }
 }
 
-function loadAvailableProjects() {
+export function loadAvailableProjects() {
   const availableProjects = document.querySelector("#projects-dropdown");
+  const editFormAvailableProjects = document.querySelector(
+    "#edit-projects-dropdown"
+  );
   do {
     availableProjects.lastChild.remove();
   } while (availableProjects.lastChild.textContent !== "None");
 
   for (let i = 0; i < projects.length; i++) {
     availableProjects.appendChild(createOption(projects[i].title));
+  }
+
+  do {
+    editFormAvailableProjects.lastChild.remove();
+  } while (editFormAvailableProjects.lastChild);
+
+  for(let i = 0 ; i < projects.length ; i++){
+    editFormAvailableProjects.appendChild(createOption(projects[i].title))
   }
 }
 
