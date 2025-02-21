@@ -1,5 +1,5 @@
 import "./css/style.css";
-import setLogo from "./modules/logo";
+import setLogo from "./others/logo.js";
 import { Task, tasks } from "./models/tasks.js";
 import { Project } from "./models/projects.js";
 import { linkTasksToProjects, updateIds } from "./controllers/general.js";
