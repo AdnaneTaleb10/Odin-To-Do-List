@@ -42,21 +42,17 @@ export function loadAvailableProjects() {
   const options = document.querySelector("#projects-dropdown");
   const editOptions = document.querySelector("#edit-projects-dropdown");
 
-  for (const opt of options.childNodes) {
-    if (opt.value !== "") {
-      opt.remove();
-    }
-  }
+  while (options.lastChild.value !== '') {
+    options.removeChild(options.lastChild);
+}
 
   for (let i = 0; i < storedProjects.length; i++) {
     options.appendChild(createOption(storedProjects[i].title));
   }
 
-  for (const opt of editOptions.childNodes) {
-    if (opt.value !== "") {
-      opt.remove();
-    }
-  }
+  while (editOptions.lastChild.value !== '') {
+    editOptions.removeChild(editOptions.lastChild);
+}
 
   for (let i = 0; i < storedProjects.length; i++) {
     editOptions.appendChild(createOption(storedProjects[i].title));
@@ -66,7 +62,7 @@ export function loadAvailableProjects() {
 function createOption(value) {
   let option = document.createElement("option");
   option.value = value;
-  option.textContent = value;
+  option.text = value;
   return option;
 }
 
