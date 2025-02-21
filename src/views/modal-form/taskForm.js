@@ -42,23 +42,21 @@ export function loadAvailableProjects() {
   const options = document.querySelector("#projects-dropdown");
   const editOptions = document.querySelector("#edit-projects-dropdown");
 
-  do {
-    options.lastChild.remove();
-  } while (
-    options.lastChild.value !== "" ||
-    options.lastChild.textContent !== "None"
-  );
+  for (const opt of options.childNodes) {
+    if (opt.value !== "") {
+      opt.remove();
+    }
+  }
 
   for (let i = 0; i < storedProjects.length; i++) {
     options.appendChild(createOption(storedProjects[i].title));
   }
 
-  do {
-    editOptions.lastChild.remove();
-  } while (
-    editOptions.lastChild.value !== "" ||
-    editOptions.lastChild.textContent !== "None"
-  );
+  for (const opt of editOptions.childNodes) {
+    if (opt.value !== "") {
+      opt.remove();
+    }
+  }
 
   for (let i = 0; i < storedProjects.length; i++) {
     editOptions.appendChild(createOption(storedProjects[i].title));
@@ -80,4 +78,3 @@ function updateProjectDisplayed() {
 }
 
 loadTaskForm();
-
