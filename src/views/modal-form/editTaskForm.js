@@ -76,7 +76,7 @@ export function displayEditTaskForm(i) {
 }
 
 function updateIfExpanded(id) {
-  const expanded = document.querySelector(`[data-index='${id}']`);
+  const expanded = document.querySelector(`[data-expanded='${id}']`);
   if (expanded !== null) {
     removeAllExpanded();
     expandTask(id);

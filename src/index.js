@@ -8,6 +8,7 @@ import { loadTaskForm } from "./views/modal-form/taskForm.js";
 import { loadProjForm } from "./views/modal-form/projectForm.js";
 import loadTab from "./views/tab.js";
 import { loadEditForm } from "./views/modal-form/editProjectForm.js";
+import { loadFilter } from "./views/prioritiesFilter.js";
 
 const task = new Task(
   "UM",
@@ -38,7 +39,7 @@ const proj2 = new Project(
   "Descrição do projeto"
 );
 
-(window.onload = linkTasksToProjects()), displayTasks();
+(window.onload = linkTasksToProjects()), displayTasks(), loadFilter();
 
 /* updateIds(proj.tasks);
 linkTasksToProjects();

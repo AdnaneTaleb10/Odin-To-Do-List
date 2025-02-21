@@ -8,7 +8,7 @@
 
 let emptyViewText = document.createElement("div");
 emptyViewText.id = "empty-view";
-emptyViewText.textContent = "Click in a task or project to expand it";
+emptyViewText.textContent = "Try clicking in a task or project to expand it";
 
 export function removeAllExpanded(displayEmptyText = false) {
   const fullView = document.querySelector("#full-view");
