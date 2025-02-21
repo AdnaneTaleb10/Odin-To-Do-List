@@ -8,6 +8,7 @@ import { loadProjForm } from "./views/modal-form/projectForm.js";
 import loadTab from "./views/tab.js";
 import { loadEditForm } from "./views/modal-form/editProjectForm.js";
 import { loadFilter } from "./views/prioritiesFilter.js";
+import applyTheme from "./views/toggleThemes.js";
 
 loadFilter()
 tasks.retrieveTasks();
