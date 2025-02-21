@@ -18,7 +18,7 @@ function displayTasksOfProjects(project) {
   const projectTasks = document.createElement("div");
   projectTasks.id = "full-project-tasks-div";
 
-  for (const task of tasks.getAllTasks) {
+  for (const task of tasks.getAllTasks()) {
     if (task.project === project.title) {
       let card = newTaskCard(task);
       card.removeAttribute("data-index");

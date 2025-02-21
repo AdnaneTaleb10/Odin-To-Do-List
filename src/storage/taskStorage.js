@@ -43,8 +43,8 @@ const tasks = (function () {
     i,
     newTitle,
     newProject,
-    newDueDate,
     newPriority,
+    newDueDate,
     newNotes
   ) {
     let parsed = JSON.parse(localStorage.getItem("tasks"));

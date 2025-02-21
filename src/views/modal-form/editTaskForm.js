@@ -36,7 +36,6 @@ function saveChanges(indexTaskToEdit) {
   const priority = document.querySelector("#edit-task-priority").value;
   const dueDate = document.querySelector("#edit-due-date").value;
   const notes = document.querySelector("#edit-task-notes").value;
-  let lastTitle = tasks[indexTaskToEdit].value;
 
   if (title.value !== "") {
     tasks.editTask(

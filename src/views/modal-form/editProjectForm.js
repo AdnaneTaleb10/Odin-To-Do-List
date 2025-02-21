@@ -2,7 +2,7 @@ import { clearDisplayed } from "../../controllers/general";
 import { displayProjects } from "../../controllers/projectsController";
 import projects from "../../storage/projectStorage";
 import { expandProject } from "../full-view/expandProject";
-import { dispalyForm, unhide, baseModal } from "./displayOptions";
+import { dispalyForm, unhide, baseModal, hide } from "./displayOptions";
 
 const editProjForm = document.querySelector("#edit-project-form");
 const editProjBtn = document.querySelector("#edit-project");
@@ -39,10 +39,10 @@ function saveChanges(index) {
 
   if (
     title.value !== "" &&
-    (!filter[0] || title.value === storedProjects[projID].title)
+    (!filter[0] || title.value === storedProjects[index].title)
   ) {
-    updateTaskProject(title.value);
     projects.editProjects(index, title.value, link, description);
+    hide(baseModal , editProjForm)
     clearDisplayed();
     displayProjects();
     updateIfExpanded(index);
