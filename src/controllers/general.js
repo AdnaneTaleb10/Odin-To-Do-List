@@ -1,22 +1,14 @@
 import create from "../others/domCreate";
-import { tasks } from "../models/tasks";
-import { projects } from "../models/projects";
+/* import { tasks } from "../models/tasks";
+import { projects } from "../models/projects"; */
+import tasks from "../storage/taskStorage";
+import projects from "../storage/projectStorage";
 
 const minView = document.querySelector("#min-view");
 
 function updateIds(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i].id = i;
-  }
-}
-
-function linkTasksToProjects() {
-  for (let task of tasks) {
-    for (let project of projects) {
-      if (task.project === project.title) {
-        project.addTask(task);
-      }
-    }
   }
 }
 
@@ -38,11 +30,9 @@ function changeLabelTo(what) {
   document.querySelector("#current-tab").textContent = what;
 }
 
-
 function clearProjectTasks() {
   const fullView = document.querySelector("#full-view");
   fullView.lastChild.remove();
 }
 
-
-export { updateIds, linkTasksToProjects, clearDisplayed, changeLabelTo , clearProjectTasks};
+export { updateIds, clearDisplayed, changeLabelTo, clearProjectTasks };

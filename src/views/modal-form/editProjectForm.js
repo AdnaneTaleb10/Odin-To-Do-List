@@ -1,7 +1,9 @@
 import { clearDisplayed } from "../../controllers/general";
 import { displayProjects } from "../../controllers/projectsController";
-import { projects } from "../../models/projects";
-import { Task, tasks } from "../../models/tasks";
+/* import { projects } from "../../models/projects";
+import { tasks } from "../../models/tasks"; */
+import projects from "../../storage/projectStorage";
+import tasks from "../../storage/taskStorage";
 import { expandProject } from "../full-view/expandProject";
 import { dispalyForm, unhide, baseModal } from "./displayOptions";
 import { hide } from "./displayOptions";

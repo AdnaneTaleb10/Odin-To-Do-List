@@ -1,4 +1,6 @@
-import { Task, tasks } from "../../models/tasks";
+/* import { Task, tasks } from "../../models/tasks"; */
+import { Task } from "../../models/tasks";
+import tasks from "../../storage/taskStorage";
 import { dispalyForm, getCurrentExpanded, hide } from "./displayOptions";
 import { submitTask } from "../../controllers/tasksController";
 import { expandProject, removeAllExpanded } from "../full-view/expandProject";

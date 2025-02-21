@@ -1,7 +1,8 @@
 import { updateIds } from "../controllers/general";
 import { projects } from "./projects";
+import tasks from "../storage/taskStorage";
 
-let tasks = [];
+let array = [];
 
 class Task {
   constructor(title, project, priority, dueDate, notes) {
@@ -11,43 +12,20 @@ class Task {
     this.dueDate = dueDate;
     this.notes = notes;
     this.isDone = false;
-    this.id = null;
+    /* this.id = null; */
     /* this.projId = null; */
 
-    tasks.push(this);
-    updateIds(tasks);
-  }
-
-  delete() {
-    tasks.splice(this.id, 1);
-    console.log(projects);
-    updateIds(tasks);
-  }
-
-  changeIsDone() {
-    this.isDone === true ? (this.isDone = false) : (this.isDone = true);
-  }
-
-  getAllTasks() {
-    return tasks;
-  }
-
-  changeProject(newTitle) {
-    this.project = newTitle;
-  }
-
-  edit(newTitle, newProject, newPriority, newDueDate, newNotes) {
-    newTitle !== "" ? (this.title = newTitle) : this.title;
-    this.project = newProject;
-    this.dueDate = newDueDate;
-    this.priority = newPriority;
-    this.notes = newNotes;
+    tasks.storeTask(this);
   }
 }
 
 function filterTasks(newArr){
-  tasks = newArr;
-  updateIds(tasks);
+  array = newArr;
+  updateIds(array);
 }
 
-export { Task, tasks, filterTasks };
+function sincronize(ew){
+  array = ew
+}
+
+export { Task, array, filterTasks, sincronize }

@@ -1,8 +1,11 @@
-import { tasks } from "../models/tasks";
-import { projects } from "../models/projects";
+/* import { tasks } from "../models/tasks";
+import { projects } from "../models/projects"; */
+import tasks from "../storage/taskStorage";
+import projects from "../storage/projectStorage";
 import { clearDisplayed, clearProjectTasks } from "./general";
 import { displayTasks, displayTasksOfProjects } from "./tasksController";
 import { removeAllExpanded } from "../views/full-view/expandCommun";
+
 
 function checkDinamically(checkbox, index) {
   /*   const cardMinimized = document.querySelector(`[data-index = '${index}']`);

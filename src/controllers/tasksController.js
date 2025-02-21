@@ -1,4 +1,5 @@
-import { tasks } from "../models/tasks";
+/* import { tasks } from "../models/tasks"; */
+import tasks from "../storage/taskStorage";
 import newTaskCard from "../models/taskCard";
 import { createTask } from "../views/modal-form/taskForm";
 import { clearDisplayed, changeLabelTo, linkTasksToProjects } from "./general";

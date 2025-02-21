@@ -1,5 +1,6 @@
 import { checkDinamically } from "../../controllers/taskActions";
-import { tasks } from "../../models/tasks";
+/* import { tasks } from "../../models/tasks"; */
+import tasks from "../../storage/taskStorage";
 import create from "../../others/domCreate";
 import { updateCurrentExpanded } from "../modal-form/displayOptions";
 import { removeAllExpanded } from "./expandCommun";

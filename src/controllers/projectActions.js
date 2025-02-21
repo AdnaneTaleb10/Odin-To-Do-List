@@ -1,5 +1,7 @@
-import { projects } from "../models/projects";
-import { filterTasks, tasks } from "../models/tasks";
+/* import { projects } from "../models/projects"; */
+import projects from "../storage/projectStorage";
+import tasks from "../storage/taskStorage";
+import { filterTasks } from "../models/tasks";
 import { removeAllExpanded } from "../views/full-view/expandCommun";
 import { clearDisplayed } from "./general";
 import { displayProjects } from "./projectsController";

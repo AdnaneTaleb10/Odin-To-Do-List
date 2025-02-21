@@ -5,8 +5,10 @@ import {
   displayTasks,
   displayTasksOfProjects,
 } from "../../controllers/tasksController";
-import { projects } from "../../models/projects";
-import { tasks } from "../../models/tasks";
+/* import { projects } from "../../models/projects"; */
+/* import { tasks } from "../../models/tasks"; */
+import projects from "../../storage/projectStorage";
+import tasks from "../../storage/taskStorage";
 import { removeAllExpanded } from "../full-view/expandCommun";
 import { expandTask } from "../full-view/expandTask";
 import {
