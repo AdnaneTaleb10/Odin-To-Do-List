@@ -1,5 +1,4 @@
 import { checkDinamically } from "../../controllers/taskActions";
-/* import { tasks } from "../../models/tasks"; */
 import tasks from "../../storage/taskStorage";
 import create from "../../others/domCreate";
 import { updateCurrentExpanded } from "../modal-form/displayOptions";
@@ -7,8 +6,9 @@ import { removeAllExpanded } from "./expandCommun";
 
 export function expandTask(index) {
   const fullView = document.querySelector("#full-view");
+  let tasksArr = tasks.getAllTasks();
 
-  for (let i = 0; i < tasks.length; i++) {
+  for (let i = 0; i < tasksArr.length; i++) {
     if (i === parseInt(index)) {
       removeAllExpanded();
       updateCurrentExpanded(i);
@@ -22,26 +22,26 @@ export function expandTask(index) {
       const task = create.createElementWithID("div", "task-full");
       const taskInfo = create.createElementWithID("div", "task-full-info");
       const title = create.createElementWithID("p", "title-full");
-      title.textContent = tasks[i].title;
+      title.textContent = tasksArr[i].title;
       const priority = create.createElementWithClass(
         "div",
         "fa-solid",
         "fa-circle",
-        `${tasks[i].priority}`
+        `${tasksArr[i].priority}`
       );
       const status = create.createElementWithID("div", "task-full-status");
       const taskProject = create.createElementWithID("p", "task-full-project");
-      taskProject.textContent = tasks[i].project;
+      taskProject.textContent = tasksArr[i].project;
       const point1 = create.createElementWithClass("span", "point");
       const point2 = create.createElementWithClass("span", "point");
       point1.textContent = "•";
       point2.textContent = "•";
       const dueDate = create.createElementWithID("p", "task-full-date");
-      dueDate.textContent = tasks[i].dueDate;
+      dueDate.textContent = tasksArr[i].dueDate;
       const checkbox = create.createElementWithClass("input", "checkbox");
       checkbox.type = "checkbox";
       const pre = create.createElementWithID("pre", "task-full-notes");
-      const notes = create.createTextElement("p", tasks[i].notes);
+      const notes = create.createTextElement("p", tasksArr[i].notes);
       const line = create.createElementWithClass("div", "line");
       task.dataset.expanded = index;
 
@@ -53,7 +53,7 @@ export function expandTask(index) {
         removeAllExpanded(true);
       });
 
-      if (tasks[i].isDone) {
+      if (tasksArr[i].isDone) {
         checkbox.checked = true;
       }
 

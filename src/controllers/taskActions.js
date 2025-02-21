@@ -1,5 +1,3 @@
-/* import { tasks } from "../models/tasks";
-import { projects } from "../models/projects"; */
 import tasks from "../storage/taskStorage";
 import projects from "../storage/projectStorage";
 import { clearDisplayed, clearProjectTasks } from "./general";
@@ -19,7 +17,7 @@ function checkDinamically(checkbox, index) {
   );
   const taskExpanded = document.querySelector(`[data-expanded='${index}']`);
 
-  tasks[index].changeIsDone();
+  tasks.changeIsDone(index);
 
   // Card exists in:
   // minView AND fullView
@@ -71,7 +69,7 @@ function removeTaskDinamically(index) {
   const taskExpanded = document.querySelector(`[data-expanded = '${index}']`);
   const projectExpanded = document.querySelector("[data-proj-index]");
   console.log(projectExpanded);
-  tasks[index].delete();
+  tasks.removeTask(index);
 
   if (tasksInMinView !== null) {
     clearDisplayed();
@@ -80,7 +78,7 @@ function removeTaskDinamically(index) {
 
   if (tasksInProjectEpanded !== null) {
     clearProjectTasks();
-    displayTasksOfProjects(projects[projectExpanded.dataset.projIndex]);
+    displayTasksOfProjects(projects.getAllProjects);
   }
 
   if (taskExpanded !== null) {

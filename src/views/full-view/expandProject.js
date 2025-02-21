@@ -6,8 +6,9 @@ import { removeAllExpanded } from "./expandCommun";
 
 export function expandProject(index) {
   const fullView = document.querySelector("#full-view");
+  let projectsArr = projects.getAllProjects();
 
-  for (let i = 0; i < projects.length; i++) {
+  for (let i = 0; i < projectsArr.length; i++) {
     if (i === parseInt(index)) {
       removeAllExpanded();
       updateCurrentExpanded(i);
@@ -24,14 +25,14 @@ export function expandProject(index) {
         "full-project-info"
       );
       const title = create.createElementWithID("h1", "full-project-title");
-      title.textContent = projects[i].title;
+      title.textContent = projectsArr[i].title;
       const link = create.createElementWithID("p", "full-project-link");
-      link.textContent = projects[i].link;
-      link.href = projects[i].link;
+      link.textContent = projectsArr[i].link;
+      link.href = projectsArr[i].link;
       const pre = create.createElementWithID("pre", "full-project-description");
       const description = create.createTextElement(
         "p",
-        projects[i].description
+        projectsArr[i].description
       );
       const line = create.createElementWithClass("div", "line");
 
@@ -46,7 +47,7 @@ export function expandProject(index) {
       project.append(closeBtn, projectInfo, pre);
       fullProject.append(project, line);
       fullView.append(fullProject);
-      displayTasksOfProjects(projects[i]);
+      displayTasksOfProjects(projectsArr[i]);
     }
   }
 }

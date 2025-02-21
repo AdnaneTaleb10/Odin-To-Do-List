@@ -2,15 +2,14 @@
 import tasks from "../storage/taskStorage";
 import newTaskCard from "../models/taskCard";
 import { createTask } from "../views/modal-form/taskForm";
-import { clearDisplayed, changeLabelTo, linkTasksToProjects } from "./general";
+import { clearDisplayed, changeLabelTo   } from "./general";
 import { hide } from "../views/modal-form/displayOptions";
-
 
 const fullView = document.querySelector("#full-view");
 const minView = document.querySelector("#min-view");
 
 function displayTasks() {
-  for (let task of tasks) {
+  for (let task of tasks.getAllTasks()) {
     minView.appendChild(newTaskCard(task));
   }
 }
@@ -19,7 +18,7 @@ function displayTasksOfProjects(project) {
   const projectTasks = document.createElement("div");
   projectTasks.id = "full-project-tasks-div";
 
-  for (const task of tasks) {
+  for (const task of tasks.getAllTasks) {
     if (task.project === project.title) {
       let card = newTaskCard(task);
       card.removeAttribute("data-index");

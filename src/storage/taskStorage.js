@@ -60,7 +60,7 @@ const tasks = (function () {
 
   function retrieveTasks() {
     let stored = JSON.parse(localStorage.getItem("tasks"));
-    for (const task of tasks) {
+    for (const task of tasks.getAllTasks()) {
       let minView = document.querySelector("#min-view");
       minView.append(newTaskCard(task));
     }

@@ -2,13 +2,13 @@ import { createProj } from "../views/modal-form/projectForm";
 import { clearDisplayed, changeLabelTo } from "./general";
 import { hide } from "../views/modal-form/displayOptions";
 import newProjectCard from "../models/projectCard";
-import { projects } from "../models/projects";
+import projects from "../storage/projectStorage";
 
 const minView = document.querySelector("#min-view");
 const full = document.querySelector("#full-view");
 
 export function displayProjects() {
-  for (let proj of projects) {
+  for (let proj of projects.getAllProjects()) {
     minView.appendChild(newProjectCard(proj));
   }
 }

@@ -4,7 +4,7 @@ import tasks from "../../storage/taskStorage";
 import { dispalyForm, getCurrentExpanded, hide } from "./displayOptions";
 import { submitTask } from "../../controllers/tasksController";
 import { expandProject, removeAllExpanded } from "../full-view/expandProject";
-import { projects } from "../../models/projects";
+import projects from "../../storage/projectStorage";
 
 const baseModal = document.querySelector("#modal-option");
 const createTaskBtn = document.querySelector("#create-task");
@@ -34,46 +34,34 @@ export function createTask() {
   let note = document.querySelector("#project-desrcription").value;
 
   let task = new Task(taskTitle, projectName, priority, dueDate, note);
-  addToProject(task);
   return task;
 }
 
-export function addToProject() {
-  for (let proj of projects) {
-    for (let task of tasks) {
-      if (task.project === proj.title) {
-        proj.addTask(task);
-      }
-    }
-  }
-}
-
 export function loadAvailableProjects() {
-  const availableProjects = document.querySelector("#projects-dropdown");
-  const editTaskFormAvailableProjects = document.querySelector(
-    "#edit-projects-dropdown"
+  const storedProjects = projects.getAllProjects();
+  const options = document.querySelector("#projects-dropdown");
+  const editOptions = document.querySelector("#edit-projects-dropdown");
+
+  do {
+    options.lastChild.remove();
+  } while (
+    options.lastChild.value !== "" ||
+    options.lastChild.textContent !== "None"
   );
 
-  let options = availableProjects.childNodes;
-  for (const option of options) {
-    if (option.value !== "" || option.textContent !== "None") {
-      option.remove();
-    }
+  for (let i = 0; i < storedProjects.length; i++) {
+    options.appendChild(createOption(storedProjects[i].title));
   }
 
-  for (let i = 0; i < projects.length; i++) {
-    availableProjects.appendChild(createOption(projects[i].title));
-  }
+  do {
+    editOptions.lastChild.remove();
+  } while (
+    editOptions.lastChild.value !== "" ||
+    editOptions.lastChild.textContent !== "None"
+  );
 
-  let editOptions = editTaskFormAvailableProjects.childNodes;
-  for (const option of editOptions) {
-    if (option.value !== "" || option.textContent !== "None") {
-      option.remove();
-    }
-  }
-
-  for (let i = 0; i < projects.length; i++) {
-    editTaskFormAvailableProjects.appendChild(createOption(projects[i].title));
+  for (let i = 0; i < storedProjects.length; i++) {
+    editOptions.appendChild(createOption(storedProjects[i].title));
   }
 }
 
@@ -92,3 +80,4 @@ function updateProjectDisplayed() {
 }
 
 loadTaskForm();
+
